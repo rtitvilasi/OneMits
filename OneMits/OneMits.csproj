@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-OneMits-80808A1F-C8BF-4E13-9BC9-766D20768DAF</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.ElasticBeanstalk" Version="3.3.100.73" />
+    <PackageReference Include="AWSSDK.S3" Version="3.3.104.25" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\OneMits.Data\OneMits.Data.csproj" />
+    <ProjectReference Include="..\OneMits.InterfaceImplementation\OneMits.InterfaceImplementation.csproj" />
+    <ProjectReference Include="..\OneMits.Models\OneMits.Models.csproj" />
+  </ItemGroup>
+
+</Project>
