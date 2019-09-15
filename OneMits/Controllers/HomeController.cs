@@ -14,7 +14,6 @@ namespace OneMits.Controllers
     public class HomeController : Controller
     {
         private readonly QuestionImplementation _questionImplementation;
-
         public HomeController(QuestionImplementation questionImplementation)
         {
             _questionImplementation = questionImplementation;
@@ -32,7 +31,7 @@ namespace OneMits.Controllers
             var popularQuestion = _questionImplementation.GetLatestQuestions(10);
             var mostResponseQuestion = _questionImplementation.GetLatestQuestions(10);
             var priorityQuestion = _questionImplementation.GetLatestQuestions(10);
-            var recentQuestions = recentQuestion.Select(question => new QuestionListingModel
+            var recentQuestions = recentQuestion.Select(question => new ForumListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -41,7 +40,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var popularQuestions = recentQuestion.Select(question => new QuestionListingModel
+            var popularQuestions = recentQuestion.Select(question => new ForumListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -50,7 +49,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var mostResponseQuestions = recentQuestion.Select(question => new QuestionListingModel
+            var mostResponseQuestions = recentQuestion.Select(question => new ForumListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -59,7 +58,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var priorityQuestions = recentQuestion.Select(question => new QuestionListingModel
+            var priorityQuestions = recentQuestion.Select(question => new ForumListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -92,6 +91,11 @@ namespace OneMits.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        private IActionResult View()
+        {
+            throw new NotImplementedException();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
