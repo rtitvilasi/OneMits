@@ -1,10 +1,16 @@
-﻿using System;
+﻿using OneMits.Models.Question;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace OneMits.Models.Category
 {
-    class CategoryListingModel
+    public class CategoryListingModel
     {
+        public int CategoryId { get; set; }
+        public string CategoryTitle { get; set; }
+        public string CategoryDescription { get; set; }
+        public string CategoryImageUrl { get; set; }
+        public virtual IEnumerable<QuestionListingModel> Questions { get; set; }
     }
 }
