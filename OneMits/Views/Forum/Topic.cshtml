@@ -1,0 +1,95 @@
+﻿<div id="tab1" class="w3-container  city">
+    <div class="set-container" style="background-color: #F2BABA; width: 1330px">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="container-forum">
+                    <form class="contact100-form validate-form">
+                        <span class="contact100-forum-title" style="font-size: 30px;">
+                            <a>
+                            @Model.Forum.Name Forum</a>
+                        </span>
+
+                        <span class="label-input100">Number Of Post : 4</span>
+                        <p class="input-fr">@Model.Forum.Description</p>
+                    </form>
+                </div>
+                <div id="dropDownSelect1"></div>
+            </div>
+            <div class="col-md-3">
+                @if (Context.User.Identity.IsAuthenticated)
+                {
+                <form class="Search-forum" asp-controller="Forum" asp-action="Search" method="post">
+                    <input asp-for="SearchQuery" type="text" name="search" placeholder="Search..">
+                    <input asp-for="Forum.Id" name="id" type="hidden" />
+                </form>
+                    <button class="button-add button-mar"><a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id">
+                        <span>Add Post</span></a>
+                    </button>
+                }
+                </div>
+        </div>
+    </div>
+
+</div>
+
+@if (Model.Posts.Any())
+{
+    @foreach (var post in Model.Posts)
+    {
+        <div id="tab1" class="w3-container  city">
+            <div class="set-container">
+                <div>
+                    <p class="question">
+                        <a asp-controller="Post" asp-action="Index" asp-route-id="@post.Id">
+                            @post.Title
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <p class="by-part">
+                        By -
+                        <a href="profile.html" class="take-part" asp-controller="Profile" asp-action="Detail" asp-route-id="@post.AuthorId">
+                            @post.AuthorName
+                        </a>
+                    </p>
+                    (@post.AuthorRating)
+                </div>
+                <div class="margin"> </div>
+
+                <div class="share">
+                    <a target="_blank"><i class="fa fa-heart" style="font-size:25px;"></i></a>
+                    <a target="_blank"><i class="fa fa-history" style="font-size:25px;"></i> @post.DatePosted </a>
+                    <a target="_blank"><i class="fa fa-comment" style="font-size:25px;"></i> @post.RepliesCount Answer</a>
+
+                    <a href="#" target="_blank">
+                        <i class="fa fa-share-alt-square" style="font-size:25px;"></i>
+                        <p href="#" class="sbutton">Share</p>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    }
+    <button class="btn-re" style="margin-left: 600px">More Post</button>
+}
+else
+{
+    <div class="noPosts">
+        <i class="material-icons md-72">question_answer</i>
+        <h3>
+            No posts found. Why not
+            <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id">
+                <span>Post</span>
+            </a>
+            Something?
+        </h3>
+    </div>
+}
+
+@section Scripts{
+    <script>
+        function clearThis(target) {
+            target.value = "";
+        }</script>
+}
