@@ -1,7 +1,9 @@
-﻿using OneMits.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using OneMits.Data;
 using OneMits.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +11,13 @@ namespace OneMits.InterfaceImplementation
 {
     public class QuestionImplementation : IQuestion
     {
+        private readonly ApplicationDbContext _context;
+
+        public QuestionImplementation(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public Task Add(Question question)
         {
             throw new NotImplementedException();
@@ -31,7 +40,10 @@ namespace OneMits.InterfaceImplementation
 
         public IEnumerable<Question> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Questions
+                 .Include(question => question.User)
+                 .Include(question => question.Answers).ThenInclude(answer => answer.User)
+                 .Include(question => question.Category);
         }
 
         public Question GetById(int id)
@@ -51,7 +63,22 @@ namespace OneMits.InterfaceImplementation
 
         public IEnumerable<Question> GetLatestQuestions(int n)
         {
-            throw new NotImplementedException();
+            return GetAll().OrderByDescending(question => question.QuestionCreated).Take(n);
+        }
+
+        public IEnumerable<Question> GetMostResponseQuestions(int n)
+        {
+            return GetAll().OrderByDescending(question => question.Answers.Count()).Take(n);
+        }
+
+        public IEnumerable<Question> GetPopularQuestions(int n)
+        {
+            return GetAll().OrderByDescending(question => question.QuestionCreated).Take(n);
+        }
+
+        public IEnumerable<Question> GetPriorityQuestions(int n)
+        {
+            return GetAll().OrderByDescending(question => question.QuestionCreated).Take(n);
         }
 
         public IEnumerable<Question> GetQuestionsByCategory(int id)

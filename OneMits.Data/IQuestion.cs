@@ -14,6 +14,9 @@ namespace OneMits.Data
         IEnumerable<Question> GetFilteredQuestions(string searchQuery);
         IEnumerable<Question> GetQuestionsByCategory(int id);
         IEnumerable<Question> GetLatestQuestions(int n);
+        IEnumerable<Question> GetPopularQuestions(int n);
+        IEnumerable<Question> GetMostResponseQuestions(int n);
+        IEnumerable<Question> GetPriorityQuestions(int n);
 
         Task Add(Question question);
         Task Delete(int Questionid);
