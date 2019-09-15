@@ -1,0 +1,64 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="login-box">
+    <div class="lb-header">
+        <a href="#" class="active" id="login-box-link">Login</a>
+        <a href="#" id="signup-box-link">Sign Up</a>
+    </div>
+
+    <form class="email-login">
+        <div class="u-form-group">
+            <label asp-for="Input.Email"></label>
+            <input asp-for="Input.Email" type="email" placeholder="Email" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="u-form-group">
+            <label asp-for="Input.Password"></label>
+            <input asp-for="Input.Password" type="password" placeholder="Password" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="u-form-group">
+            <button>Log in</button>
+        </div>
+        <div class="u-form-group">
+            <a id="forgot-password" asp-page="./ForgotPassword" class="forgot-password">Forgot password?</a>
+        </div>
+    </form>
+    <form class="email-signup">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="u-form-group">
+            <label asp-for="Input.UserName"></label>
+            <input asp-for="Input.UserName" type="text" placeholder="Username" />
+            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+        </div>
+        <div class="u-form-group">
+            <label asp-for="Input.Email"></label>
+            <input asp-for="Input.Email" type="email" placeholder="Email" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="u-form-group">
+            <label asp-for="Input.Password"></label>
+            <input asp-for="Input.Password" type="password" placeholder="Password" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="u-form-group">
+            <label asp-for="Input.ConfirmPassword"></label>
+            <input asp-for="Input.ConfirmPassword" type="password" placeholder="Confirm Password" />
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="u-form-group">
+            <button>Sign Up</button>
+        </div>
+    </form>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
