@@ -1,0 +1,88 @@
+﻿@model LambdaForums.Models.ApplicationUser.ProfileModel
+
+@inject UserManager<LambdaForums.Data.Models.ApplicationUser> UserManager
+
+<div class="w3-container  city">
+    <div class="set-container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="image-cropper" id="userProfileImage" style="background-image:url(@Model.ProfileImageUrl)">
+                </div>
+                @if (User.Identity.Name == Model.UserName)
+                {
+                    <form method="post" enctype="multipart/form-data" asp-controller="Profile" asp-action="UploadProfileImage">
+                        <div id="upload">
+                            <label class="btn btn-default btn-file">
+                                Browse <input type="file" name="file" style="display:none" />
+                            </label>
+                        </div>
+                        <button type="submit" id="btn-profile" class="btn btn-default">
+                            Submit
+                        </button>
+                    </form>
+                }
+            </div>
+            <div class="col-md-3">
+                <p class="pro-name">@Model.UserName</p>
+                @if (@Model.IsAdmin)
+                {
+                    <span class="isAdmin">Admin</span>
+                }
+                <p class="pro-inf">Information Technology</p>
+                <p class="pro-inf">Current Rating:@Model.UserRating</p>
+                <p class="pro-inf">Email:@Model.Email</p>
+                <p class="pro-inf">Member Since: @Model.MemberSince</p><br>
+            </div>
+            <div class="col-md-5">
+
+            </div>
+            <div class="col-md-2">
+                <div class="share-pro">
+                    <a target="_blank"><i class="fa fa-heart" style="font-size:40px;"></i></a>
+                    <a href="#" class="like-text">223</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+<button class="btn-re">Answered</button>
+<button class="btn-re">Asked</button>
+
+<div id="tab1" class="w3-container  city">
+    <div class="set-container">
+        <div>
+            <p class="question">
+                <a href="postview.html">
+                    Space Efficiency-How much extra memory your algorithm needs?
+                </a>
+            </p>
+        </div>
+        <div>
+            <p class="by-part">By - <a href="#" class="take-part">Nishant Raghuvanshi</a>&nbsp &nbsp Category - <a href="#" class="take-part">Dance</a></p>
+        </div>
+        <div class="margin"> </div>
+        <div class="answer">
+            <p>
+                Immediately and globally as well. Natural resources, which we are losing due to pollution today, have been produced in millions of years and might take another Million to repair.Industries emanating toxic gases and insoluble waste, damage our natural resources oOur SQL tutorial will teach you how to use SQL in: MySQL, SQL Server, MS Access, Oracle, Sybase, Informix, Postgres, and other database systems.PHP is a widely-used, free, and efficient alternative to competitors such as Microsoft's ASP.L, SQL Server, MS Access, Oracle, Sybase, Informix, Postgres<span class="dots fw-700">.... </span><span class="hiding"> and other database systems.PHP is a widely-used, free, and efficient.Industries emanating toxic gases and insoluble waste, damage our natural resources of air, soil and water. There could be various examples of human induced pollutants, like – plastics, littering, radioactive contamination, soil contamination etc. Pollution must be dealt with immediately and globally as well. Natural resources, which we are losing due to pollution today, have been produced in millions of years and might take another Million to repair.Industries emanating toxic gases and insoluble waste, damage our natural resources of air, soil and water.There could be various examples of human induced pollutants, like – plastics, littering, radioactive contamination, soil contamination etc.</span>
+                <a href="#" class="read-more fw-700">Show More</a>
+                <a href="#" class="show-less hiding fw-700">Show Less</a>
+            </p>
+        </div>
+        <div class="margin"> </div>
+
+        <div class="share">
+            <a target="_blank"><i class="fa fa-heart" style="font-size:25px;"></i></a>
+            <a target="_blank"><i class="fa fa-history" style="font-size:25px;"></i> 5 Min Ago</a>
+            <a target="_blank"><i class="fa fa-comment" style="font-size:25px;"></i> 5 Answer</a>
+
+            <a href="#" target="_blank">
+                <i class="fa fa-share-alt-square" style="font-size:25px;"></i>
+                <p href="#" class="sbutton">Share</p>
+            </a>
+        </div>
+    </div>
+
+
