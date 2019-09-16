@@ -11,6 +11,6 @@ namespace OneMits.Models.Category
         public string CategoryTitle { get; set; }
         public string CategoryDescription { get; set; }
         public string CategoryImageUrl { get; set; }
-        public virtual IEnumerable<QuestionListingModel> Questions { get; set; }
+        public virtual IEnumerable<ForumListingModel> Questions { get; set; }
     }
 }

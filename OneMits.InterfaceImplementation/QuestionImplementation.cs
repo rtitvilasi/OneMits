@@ -53,12 +53,13 @@ namespace OneMits.InterfaceImplementation
 
         public IEnumerable<Question> GetFilteredQuestions(Category category, string searchQuery)
         {
-            throw new NotImplementedException();
+            return string.IsNullOrEmpty(searchQuery) ? category.Questions : category.Questions
+               .Where(post => post.QuestionTitle.Contains(searchQuery) || post.QuestionContent.Contains(searchQuery));
         }
 
         public IEnumerable<Question> GetFilteredQuestions(string searchQuery)
         {
-            throw new NotImplementedException();
+            return GetAll().Where(post => post.QuestionTitle.Contains(searchQuery) || post.QuestionContent.Contains(searchQuery));
         }
 
         public IEnumerable<Question> GetLatestQuestions(int n)
