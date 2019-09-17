@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using OneMits.Data;
 using OneMits.Data.Models;
 using OneMits.InterfaceImplementation;
 using OneMits.Models;
@@ -13,8 +14,8 @@ namespace OneMits.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly QuestionImplementation _questionImplementation;
-        public HomeController(QuestionImplementation questionImplementation)
+        private readonly IQuestion _questionImplementation;
+        public HomeController(IQuestion questionImplementation)
         {
             _questionImplementation = questionImplementation;
         }
@@ -40,7 +41,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var popularQuestions = recentQuestion.Select(question => new QuestionListingModel
+            var popularQuestions = popularQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -49,7 +50,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var mostResponseQuestions = recentQuestion.Select(question => new QuestionListingModel
+            var mostResponseQuestions = mostResponseQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -58,7 +59,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var priorityQuestions = recentQuestion.Select(question => new QuestionListingModel
+            var priorityQuestions = priorityQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -91,11 +92,6 @@ namespace OneMits.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        private IActionResult View()
-        {
-            throw new NotImplementedException();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

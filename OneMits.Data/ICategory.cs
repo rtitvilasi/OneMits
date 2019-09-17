@@ -12,7 +12,7 @@ namespace OneMits.Data
 
         Task Create(Category category);
         Task Delete(int categoryid);
-        Task UpdateForumTitle(int categoryid, string newCategoryTitle);
-        Task UpdateForumDescription(int categoryid, string newCategoryDescription);
+        Task UpdateCategoryTitle(int categoryid, string newCategoryTitle);
+        Task UpdateCategoryDescription(int categoryid, string newCategoryDescription);
     }
 }

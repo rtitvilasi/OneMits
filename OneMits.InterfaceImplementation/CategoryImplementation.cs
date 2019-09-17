@@ -34,12 +34,12 @@ namespace OneMits.InterfaceImplementation
             throw new NotImplementedException();
         }
 
-        public Task UpdateForumDescription(int categoryid, string newCategoryDescription)
+        public Task UpdateCategoryDescription(int categoryid, string newCategoryDescription)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateForumTitle(int categoryid, string newCategoryTitle)
+        public Task UpdateCategoryTitle(int categoryid, string newCategoryTitle)
         {
             throw new NotImplementedException();
         }

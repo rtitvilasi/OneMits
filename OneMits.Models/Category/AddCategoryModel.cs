@@ -7,7 +7,7 @@ namespace OneMits.Models.Category
 {
     public class AddCategoryModel
     {
-        public string ForumTitle { get; set; }
-        public string ForumDescription { get; set; }
+        public string CategoryTitle { get; set; }
+        public string CategoryDescription { get; set; }
     }
 }
