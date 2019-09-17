@@ -31,7 +31,7 @@ namespace OneMits.Controllers
             var popularQuestion = _questionImplementation.GetLatestQuestions(10);
             var mostResponseQuestion = _questionImplementation.GetLatestQuestions(10);
             var priorityQuestion = _questionImplementation.GetLatestQuestions(10);
-            var recentQuestions = recentQuestion.Select(question => new ForumListingModel
+            var recentQuestions = recentQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -40,7 +40,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var popularQuestions = recentQuestion.Select(question => new ForumListingModel
+            var popularQuestions = recentQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -49,7 +49,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var mostResponseQuestions = recentQuestion.Select(question => new ForumListingModel
+            var mostResponseQuestions = recentQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
@@ -58,7 +58,7 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
-            var priorityQuestions = recentQuestion.Select(question => new ForumListingModel
+            var priorityQuestions = recentQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,

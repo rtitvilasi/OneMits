@@ -42,7 +42,6 @@ namespace OneMits.Controllers
             var forum = _questionImplementation.GetById(id);
             var posts = new List<Question>();
 
-            posts = _questionImplementation.GetFilteredQuestions(forum, searchQuery).ToList();
 
             var QuestionListings = posts.Select(question => new QuestionListingModel
             {
@@ -63,5 +62,9 @@ namespace OneMits.Controllers
             return View(model);
         }
 
+        private CategoryListingModel BuildForumListing(Question question)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

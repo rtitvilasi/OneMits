@@ -1,15 +1,14 @@
-﻿
+﻿using OneMits.Models.Question;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using OneMits.Models.Question;
 
-namespace OneMits.Models.Category
+namespace OneMits.Models.Search
 {
-    public class CategoryTopicModel
+    public class SearchModel
     {
-        public CategoryListingModel Forum { get; set; }
         public IEnumerable<QuestionListingModel> Questions { get; set; }
         public string SearchQuery { get; set; }
+        public bool EmptySearchResults { get; set; }
     }
 }
