@@ -23,7 +23,7 @@ namespace OneMits.InterfaceImplementation
             throw new NotImplementedException();
         }
 
-        public Task AddReply(Answer answer)
+        public Task AddAnswer(Answer answer)
         {
             throw new NotImplementedException();
         }
