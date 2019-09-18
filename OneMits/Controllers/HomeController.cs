@@ -29,13 +29,15 @@ namespace OneMits.Controllers
         private HomeIndexModel BuildHomeIndex()
         {
             var recentQuestion = _questionImplementation.GetLatestQuestions(10);
-            var popularQuestion = _questionImplementation.GetLatestQuestions(10);
-            var mostResponseQuestion = _questionImplementation.GetLatestQuestions(10);
-            var priorityQuestion = _questionImplementation.GetLatestQuestions(10);
+            var popularQuestion = _questionImplementation.GetMostResponseQuestions(10);
+            var mostResponseQuestion = _questionImplementation.GetPopularQuestions(10);
+            var priorityQuestion = _questionImplementation.GetPriorityQuestions(10);
             var recentQuestions = recentQuestion.Select(question => new QuestionListingModel
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
+                QuestionContent = question.QuestionContent,
+                AuthorId = question.User.Id,
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
@@ -45,6 +47,8 @@ namespace OneMits.Controllers
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
+                QuestionContent = question.QuestionContent,
+                AuthorId = question.User.Id,
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
@@ -54,6 +58,8 @@ namespace OneMits.Controllers
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
+                QuestionContent = question.QuestionContent,
+                AuthorId = question.User.Id,
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
@@ -63,6 +69,8 @@ namespace OneMits.Controllers
             {
                 QuestionId = question.QuestionId,
                 QuestionTitle = question.QuestionTitle,
+                QuestionContent = question.QuestionContent,
+                AuthorId = question.User.Id,
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),

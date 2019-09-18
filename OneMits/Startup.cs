@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OneMits.Data;
 using OneMits.Data.Models;
+using OneMits.InterfaceImplementation;
 
 namespace OneMits
 {
@@ -39,6 +40,9 @@ namespace OneMits
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<ICategory, CategoryImplementation>();
+            services.AddScoped<IQuestion, QuestionImplementation>();
+            services.AddScoped<IApplicationUser, ApplicationUserImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

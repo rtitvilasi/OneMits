@@ -35,11 +35,7 @@
         </div>
 
         <nav class="main-nav pt-40">
-            <ul>
-                <!-- inser more links here -->
-                <li><a class="cd-signin" href="signup.html">Sign in</a></li>
-                <li><a class="cd-signup" href="signup.html">Sign up</a></li>
-            </ul>
+            <partial name="_LoginPartial" />
         </nav>
     </header>
 
@@ -57,7 +53,7 @@
         <a href="#about">Contect US</a>
         <a style="float: right; padding: 0px 0px 0px 0px;">
             <form class="Search-bar" asp-controller="Search" asp-action="Search" method="post">
-                <input asp-for="SearchQuery" type="text" name="search" placeholder="Search..">
+                @*<input asp-for="SearchQuery" type="text" name="search" placeholder="Search..">*@
             </form>
         </a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>

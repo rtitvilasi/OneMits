@@ -51,6 +51,7 @@ namespace OneMits.Controllers
                 QuestionId = question.QuestionId,
                 AuthorName = question.User.UserName,
                 QuestionTitle = question.QuestionTitle,
+                QuestionContent = question.QuestionContent,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
                 Category = BuildCategoryListing(question)
