@@ -44,6 +44,7 @@ namespace OneMits.Controllers
                 QuestionCreated = question.QuestionCreated,
                 QuestionContent = question.QuestionContent,
                 Answers = answers,
+                AnswerCount = question.Answers.Count(),
                 CategoryId = question.Category.CategoryId,
                 CategoryTitle = question.Category.CategoryTitle,
                 IsAuthorAdmin = IsAuthorAdmin(question.User)
@@ -111,6 +112,31 @@ namespace OneMits.Controllers
                 QuestionCreated = DateTime.Now,
                 User = user,
                 Category = category
+            };
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddAnswer(AnswerModel model)
+        {
+            var userId = _userManager.GetUserId(User);
+            var user = await _userManager.FindByIdAsync(userId);
+
+            var answer = BuildReply(model, user);
+
+            await _questionImplementation.AddAnswer(answer);
+            await _applicationUserImplementation.UpdateUserRating(userId, typeof(Answer));
+
+            return RedirectToAction("Index", "Question", new { questionid = model.QuestionId });
+        }
+
+        private Answer BuildReply(AnswerModel model, ApplicationUser user)
+        {
+            var question = _questionImplementation.GetById(model.QuestionId);
+            return new Answer
+            {
+                Question = question,
+                AnswerContent = model.AnswerContent,
+                AnswerCreated = DateTime.Now,
+                User = user
             };
         }
 

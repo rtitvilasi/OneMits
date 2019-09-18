@@ -48,31 +48,7 @@ namespace OneMits.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> AddAnswer(AnswerModel model)
-        {
-            var userId = _userManager.GetUserId(User);
-            var user = await _userManager.FindByIdAsync(userId);
-
-            var answer = BuildReply(model, user);
-
-            await _questionImplementation.AddAnswer(answer);
-            await _applicationUserImplementation.UpdateUserRating(userId, typeof(Answer));
-
-            return RedirectToAction("Index", "Question", new { questionid = model.QuestionId });
-        }
-
-        private Answer BuildReply(AnswerModel model, ApplicationUser user)
-        {
-            var question = _questionImplementation.GetById(model.QuestionId);
-            return new Answer
-            {
-                Question = question,
-                AnswerContent = model.AnswerContent,
-                AnswerCreated = DateTime.Now,
-                User = user
-            };
-        }
+       
 
     }
 }

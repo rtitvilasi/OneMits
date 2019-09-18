@@ -10,6 +10,7 @@ namespace OneMits.Models.ApplicationUser
         public string Email { get; set; }
         public string UserName { get; set; }
         public string UserRating { get; set; }
+        public string ProfileImageUrl { get; set; }
         public string EnrollmentNumber  { get; set; }
         public bool IsAdmin { get; set; }
         public DateTime MemberSince { get; set; }

@@ -45,7 +45,7 @@ namespace OneMits.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
             [Required]
-            [EmailAddress]
+            
             [Display(Name = "UserName")]
             public string UserName { get; set; }
 
@@ -71,7 +71,7 @@ namespace OneMits.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
