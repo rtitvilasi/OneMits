@@ -15,11 +15,18 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <None Include="Views\Answer\Create.cshtml" />
+=======
+>>>>>>> acb8d6010d49643326febf7a5c728e7c1fca90a7
     <None Include="Views\Category\Create.cshtml" />
     <None Include="Views\Category\Index.cshtml" />
     <None Include="Views\Category\Topic.cshtml" />
     <None Include="Views\Profile\Detials.cshtml" />
+<<<<<<< HEAD
+=======
+    <None Include="Views\Profile\Index.cshtml" />
+>>>>>>> acb8d6010d49643326febf7a5c728e7c1fca90a7
     <None Include="Views\Question\Create.cshtml" />
     <None Include="Views\Question\Index.cshtml" />
     <None Include="Views\Search\Result.cshtml" />

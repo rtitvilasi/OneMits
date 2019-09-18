@@ -30,11 +30,12 @@ namespace OneMits.Controllers
                 CategoryId = category.CategoryId,
                 CategoryTitle = category.CategoryTitle,
                 CategoryDescription = category.CategoryDescription,
-                CategoryImageUrl = category.CategoryImageUrl
+                CategoryImageUrl = category.CategoryImageUrl,
+                QuestionCount = category.Questions.Count()
             });
-            var model = new CategoryIndexModel
+            var model = new CategoryIndexModel  
             {
-                QuestionList = categories
+                CategoryList = categories
             };
             return View(model);
         }
@@ -79,7 +80,8 @@ namespace OneMits.Controllers
                 CategoryId = category.CategoryId,
                 CategoryTitle = category.CategoryTitle,
                 CategoryDescription = category.CategoryDescription,
-                CategoryImageUrl = category.CategoryImageUrl
+                CategoryImageUrl = category.CategoryImageUrl,
+                QuestionCount = category.Questions.Count()
             };
         }
         [HttpPost]

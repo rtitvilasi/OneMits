@@ -18,14 +18,16 @@ namespace OneMits.InterfaceImplementation
             _context = context;
         }
 
-        public Task Add(Question question)
+        public async Task Add(Question question)
         {
-            throw new NotImplementedException();
+            _context.Add(question);
+            await _context.SaveChangesAsync();
         }
 
-        public Task AddAnswer(Answer answer)
+        public async Task AddAnswer(Answer answer)
         {
-            throw new NotImplementedException();
+            _context.Answers.Add(answer);
+            await _context.SaveChangesAsync();
         }
 
         public Task Delete(int Questionid)
@@ -48,7 +50,11 @@ namespace OneMits.InterfaceImplementation
 
         public Question GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Questions.Where(question => question.QuestionId == id)
+               .Include(question => question.User)
+               .Include(question => question.Answers).ThenInclude(answer => answer.User)
+               .Include(question => question.Category)
+               .First();
         }
 
         public IEnumerable<Question> GetFilteredQuestions(Category category, string searchQuery)
@@ -84,7 +90,9 @@ namespace OneMits.InterfaceImplementation
 
         public IEnumerable<Question> GetQuestionsByCategory(int id)
         {
-            throw new NotImplementedException();
+            return _context.Categories
+                .Where(category => category.CategoryId == id).First()
+                .Questions;
         }
     }
 }
