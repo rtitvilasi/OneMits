@@ -1,4 +1,4 @@
-﻿
+﻿@model OneMits.Models.Category.AddCategoryModel
 
 <div id="tab1" class="w3-container  city">
     <div class="set-container">
@@ -6,19 +6,20 @@
             <span class="contact100-form-title">
                 Post A Forum
             </span>
-            <form class="contact100-form validate-form" asp-action="AddForum" method="post" id="createForumForm" enctype="multipart/form-data">
+            <form class="contact100-form validate-form"
+                  asp-action="AddCategory" method="post" id="createForumForm" enctype="multipart/form-data">
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                    <label asp-for="Title" class="label-input100">Topic</label>
-                    <input class="input100" type="text" asp-for="Title" name="name" placeholder="Enter your Forum Topic ">
-                    <span class="focus-input100" asp-validation-for="Title"></span>
+                    <label asp-for="CategoryTitle" class="label-input100">Topic</label>
+                    <input class="input100" type="text" asp-for="CategoryTitle" name="name" placeholder="Enter your Forum Topic ">
+                    <span class="focus-input100" asp-validation-for="CategoryTitle"></span>
                 </div>
 
 
                 <div class="wrap-input100 validate-input" data-validate="Message is required">
-                    <label asp-for="Desciption" class="label-input100">Desciption</label>
-                    <textarea asp-for="Desciption" class="input100" name="message" placeholder="About Forum..."></textarea>
-                    <span class="focus-input100" asp-validation-for="Desciption"></span>
+                    <label asp-for="CategoryDescription" class="label-input100">Desciption</label>
+                    <textarea asp-for="CategoryDescription" class="input100" name="message" placeholder="About Forum..."></textarea>
+                    <span class="focus-input100" asp-validation-for="CategoryDescription"></span>
                 </div>
 
                 <div class="container-contact100-form-btn">

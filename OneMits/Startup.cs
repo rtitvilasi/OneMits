@@ -43,10 +43,11 @@ namespace OneMits
             services.AddScoped<ICategory, CategoryImplementation>();
             services.AddScoped<IQuestion, QuestionImplementation>();
             services.AddScoped<IApplicationUser, ApplicationUserImplementation>();
+            services.AddTransient<AdminRoleCreation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, AdminRoleCreation adminRoleCreation)
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +61,7 @@ namespace OneMits
                 app.UseHsts();
             }
 
+            adminRoleCreation.SeedAdminUser().Wait();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

@@ -7,6 +7,7 @@ namespace OneMits.Models.Category
 {
     public class CategoryIndexModel
     {
-        public IEnumerable<CategoryListingModel> QuestionList { get; set; }
+        public IEnumerable<CategoryListingModel> CategoryList { get; set; }
+        public CategoryListingModel Category { get; set; }
     }
 }

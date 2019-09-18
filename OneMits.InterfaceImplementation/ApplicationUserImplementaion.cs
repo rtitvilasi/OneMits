@@ -2,25 +2,52 @@
 using OneMits.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OneMits.InterfaceImplementation
 {
     public class ApplicationUserImplementation : IApplicationUser
     {
+        private readonly ApplicationDbContext _context;
+
+        public ApplicationUserImplementation(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IEnumerable<ApplicationUser> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.ApplicationUsers;
         }
 
         public ApplicationUser GetById(string id)
         {
-            throw new NotImplementedException();
+            return GetAll().FirstOrDefault(user => user.Id == id);
         }
 
-        public Task UpdateUserRating(string id, Type type)
+        public async Task UpdateUserRating(string userId, Type type)
         {
-            throw new NotImplementedException();
+            var user = GetById(userId);
+            user.Rating = CalculateUserRating(type, user.Rating);
+            await _context.SaveChangesAsync();
+        }
+        private int CalculateUserRating(Type type, int userRating)
+        {
+            var inc = 0;
+            if (type == typeof(Question))
+                inc = 2;
+            if (type == typeof(Answer))
+                inc = 5;
+            return userRating + inc;
+        }
+
+        public async Task SetProfileImage(string id, Uri uri)
+        {
+            var user = GetById(id);
+            user.ProfileImageUrl = uri.AbsoluteUri;
+            _context.Update(user);
+            await _context.SaveChangesAsync();
         }
     }
 }

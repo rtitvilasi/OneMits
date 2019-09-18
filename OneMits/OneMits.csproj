@@ -7,34 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Answer\**" />
-    <Compile Remove="Views\Category\**" />
-    <Compile Remove="Views\Profile\**" />
-    <Compile Remove="Views\Question\**" />
-    <Compile Remove="Views\Search\**" />
-    <Content Remove="Views\Answer\**" />
-    <Content Remove="Views\Category\**" />
-    <Content Remove="Views\Profile\**" />
-    <Content Remove="Views\Question\**" />
-    <Content Remove="Views\Search\**" />
-    <EmbeddedResource Remove="Views\Answer\**" />
-    <EmbeddedResource Remove="Views\Category\**" />
-    <EmbeddedResource Remove="Views\Profile\**" />
-    <EmbeddedResource Remove="Views\Question\**" />
-    <EmbeddedResource Remove="Views\Search\**" />
-    <None Remove="Views\Answer\**" />
-    <None Remove="Views\Category\**" />
-    <None Remove="Views\Profile\**" />
-    <None Remove="Views\Question\**" />
-    <None Remove="Views\Search\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="wwwroot\css\NewFile.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\NewFile.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Category\Create.cshtml" />
+    <None Include="Views\Category\Index.cshtml" />
+    <None Include="Views\Category\Topic.cshtml" />
+    <None Include="Views\Profile\Detials.cshtml" />
+    <None Include="Views\Profile\Index.cshtml" />
+    <None Include="Views\Question\Create.cshtml" />
+    <None Include="Views\Question\Index.cshtml" />
+    <None Include="Views\Search\Result.cshtml" />
   </ItemGroup>
 
 
