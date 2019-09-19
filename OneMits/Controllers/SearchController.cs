@@ -21,7 +21,7 @@ namespace OneMits.Controllers
             _questionImplementation = questionImplementation;
         }
 
-        public IActionResult Results(string searchQuery)
+        public IActionResult Result(string searchQuery)
         {
             var questions = _questionImplementation.GetFilteredQuestions(searchQuery);
             var areNoResults = (!string.IsNullOrEmpty(searchQuery) && !questions.Any());
@@ -60,7 +60,7 @@ namespace OneMits.Controllers
         [HttpPost]
         public IActionResult Search(string searchQuery)
         {
-            return RedirectToAction("Results", new { searchQuery });
+            return RedirectToAction("Result", new { searchQuery });
         }
     }
 }

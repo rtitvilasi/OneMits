@@ -10,8 +10,8 @@ using OneMits.Data;
 namespace OneMits.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190918151912_test")]
-    partial class test
+    [Migration("20190919102930_TestIt")]
+    partial class TestIt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

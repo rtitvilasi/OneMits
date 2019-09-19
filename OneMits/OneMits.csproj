@@ -19,7 +19,6 @@
     <None Include="Views\Category\Index.cshtml" />
     <None Include="Views\Category\Topic.cshtml" />
     <None Include="Views\Profile\Detials.cshtml" />
-    <None Include="Views\Profile\Index.cshtml" />
     <None Include="Views\Question\Create.cshtml" />
     <None Include="Views\Question\Index.cshtml" />
     <None Include="Views\Search\Result.cshtml" />
