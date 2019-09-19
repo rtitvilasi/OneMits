@@ -54,7 +54,7 @@ namespace OneMits.InterfaceImplementation
                .Include(question => question.User)
                .Include(question => question.Answers).ThenInclude(answer => answer.User)
                .Include(question => question.Category)
-               .First();
+               .FirstOrDefault();
         }
 
         public IEnumerable<Question> GetFilteredQuestions(Category category, string searchQuery)

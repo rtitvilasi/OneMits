@@ -114,6 +114,7 @@ namespace OneMits.Controllers
                 Category = category
             };
         }
+
         [HttpPost]
         public async Task<IActionResult> AddAnswer(AnswerModel model)
         {
@@ -139,6 +140,5 @@ namespace OneMits.Controllers
                 User = user
             };
         }
-
     }
 }

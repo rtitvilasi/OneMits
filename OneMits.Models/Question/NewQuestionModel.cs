@@ -8,6 +8,7 @@ namespace OneMits.Models.Question
     {
         public string CategoryTitle { get; set; }
         public int CategoryId { get; set; }
+        public int AuthorId { get; set; }
         public string AuthorName { get; set; }
         public string CategoryImageUrl { get; set; }
         public string QuestionContent { get; set; }

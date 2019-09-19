@@ -11,24 +11,17 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
                     <label class="label-input100" asp-for="QuestionTitle">Your Question</label>
-                    <input class="input100" type="text" name="name" asp-for="QuestionTitle" placeholder="Enter your Question ">
+                    <input class="input100" type="text" asp-for="QuestionTitle" placeholder="Enter your Question ">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input200 validate-input" data-validate="Category is required">
-                    <div class="dropdown">
-                        <button class="dropbtn">Category</button>
-                        <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                        </div>
-                    </div>
+                    
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Message is required">
                     <label class="label-input100" asp-for="QuestionContent">Desciption</label>
-                    <textarea class="input100" name="message" asp-for="QuestionContent" placeholder="About Question..."></textarea>
+                    <textarea class="input100" asp-for="QuestionContent" placeholder="About Question..."></textarea>
                     <span class="focus-input100"></span>
                 </div>
 
