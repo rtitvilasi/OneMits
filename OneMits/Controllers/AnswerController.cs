@@ -22,30 +22,6 @@ namespace OneMits.Controllers
             _applicationUserImplementation = applicationUserImplementation;
         }
 
-        public async Task<IActionResult> Create(int id)
-        {
-            var question = _questionImplementation.GetById(id);
-            var user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            var model = new AnswerModel
-            {
-                QuestionContent = question.QuestionContent,
-                QuestionTitle = question.QuestionTitle,
-                QuestionId = question.QuestionId,
-                AuthorName = User.Identity.Name,
-                AuthorId = user.Id,
-                AuthorImageUrl = user.ProfileImageUrl,
-                AuthorRating = user.Rating,
-                IsAuthorAdmin = User.IsInRole("Admin"),
-
-                CategoryTitle = question.Category.CategoryTitle,
-                CategoryId = question.Category.CategoryId,
-                CategoryImageUrl = question.Category.CategoryImageUrl,
-
-                AnswerCreated = DateTime.Now
-            };
-
-            return View(model);
-        }
+        
     }
 }

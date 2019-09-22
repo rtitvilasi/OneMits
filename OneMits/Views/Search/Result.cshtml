@@ -3,7 +3,7 @@
 <div class="row sectionHeader">
     <div class="sectionHeading">
         <span>Search Results for: @Model.SearchQuery</span>
-        <form asp-controller="Search" asp-action="Search" method="post">
+        <form class="Search-bar" asp-controller="Search" asp-action="Search" method="post">
             <div class="searchForm">
                 <input asp-for="SearchQuery" type="text" placeholder="Search...." class="searchBar" onfocus="clearThis(this)" />
                 <button type="submit" class="btn btn-forumSearch">
@@ -31,7 +31,7 @@
                     <p class="by-part">By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@question.AuthorId" class="take-part">
                         @question.AuthorName</a>&nbsp &nbsp Category - 
                     <a asp-controller="Category" asp-action="Topic" asp-route-id="@question.Category.CategoryId" class="take-part">
-                      @question.Category
+                      @question.Category.CategoryTitle
                     </a></p>
                 </div>
                 <div class="margin"> </div>

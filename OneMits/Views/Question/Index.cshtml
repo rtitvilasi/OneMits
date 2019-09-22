@@ -75,7 +75,7 @@
                 <div class="margin"> </div>
                 <div class="answer">
                     <p>
-                        @Html.Raw(reply.AnswerContent)
+                        @reply.AnswerContent
                     </p>
                 </div>
 
@@ -114,18 +114,18 @@ else
 }
 
 
-@*<div class="w3-container  city">
+<div class="w3-container  city">
         <div class="set-container-re">
             <br>
             <span class="rply-title">
                 Add Your Reply
             </span><br>
             <div class="margin"> </div><br>
-            <form class="contact100-form validate-form" asp-action="AddAnswer" method="post" id="addPostForm">
+            <form class="contact100-form validate-form" asp-action="AddAnswer" asp-route-id="@Model.QuestionId" method="post" id="addPostForm">
                 <div class="container-Recontact">
                     <div class="wrap-input100 validate-input" data-validate="Message is required">
                         <label class="label-input100" asp-for="AnswerContent">Reply</label>
-                        <textarea asp-for="AnswerContent" class="input100" name="message" placeholder="Your Review About The Question..."></textarea>
+                        <textarea asp-for="AnswerContent" class="input100" placeholder="Your Review About The Question..."></textarea>
                         <span asp-validation-for="AnswerContent" class="focus-input100"></span>
                     </div>
                     <div class="container-contact100-form-btn">
@@ -142,4 +142,4 @@ else
                 <input asp-for="QuestionId" type="hidden" />
             </form>
         </div>
-    </div>*@
+    </div>

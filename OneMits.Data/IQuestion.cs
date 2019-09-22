@@ -18,7 +18,7 @@ namespace OneMits.Data
         IEnumerable<Question> GetMostResponseQuestions(int n);
         IEnumerable<Question> GetPriorityQuestions(int n);
 
-        Task Add(Question question);
+        Task AddQuestion(Question question);
         Task Delete(int Questionid);
         Task EditQuestionContent(int id, string newContent);
         Task AddAnswer(Answer answer);

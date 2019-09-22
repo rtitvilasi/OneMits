@@ -18,8 +18,14 @@ namespace OneMits.Models.Question
         public string QuestionContent { get; set; }
         public bool IsAuthorAdmin { get; set; }
 
+        public int AnswerId { get; set; }
+        public DateTime AnswerCreated { get; set; }
+        public string AnswerContent { get; set; }
+
+
         public int CategoryId { get; set; }
         public string CategoryTitle { get; set; }
+        public string CategoryImageUrl { get; set; }
 
         public IEnumerable<AnswerModel> Answers { get; set; }
     }

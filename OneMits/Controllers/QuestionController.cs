@@ -95,10 +95,10 @@ namespace OneMits.Controllers
             var user = _userManager.FindByIdAsync(userId).Result;
             var question = BuildPost(model, user);
 
-            await _questionImplementation.Add(question);
+            await _questionImplementation.AddQuestion(question);
             await _applicationUserImplementation.UpdateUserRating(userId, typeof(Question));
 
-            return RedirectToAction("Index", "Question", new { questionid = question.QuestionId });
+             return RedirectToAction("Index", "Question",new { questionid = question.QuestionId });
 
         }
 
@@ -116,7 +116,7 @@ namespace OneMits.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAnswer(AnswerModel model)
+        public async Task<IActionResult> AddAnswer(QuestionIndexModel model)
         {
             var userId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(userId);
@@ -129,7 +129,7 @@ namespace OneMits.Controllers
             return RedirectToAction("Index", "Question", new { questionid = model.QuestionId });
         }
 
-        private Answer BuildReply(AnswerModel model, ApplicationUser user)
+        private Answer BuildReply(QuestionIndexModel model, ApplicationUser user)
         {
             var question = _questionImplementation.GetById(model.QuestionId);
             return new Answer

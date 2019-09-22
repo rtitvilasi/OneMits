@@ -21,9 +21,9 @@
             <div class="col-md-3">
                 @if (Context.User.Identity.IsAuthenticated)
                 {
-                <form class="Search-forum" asp-controller="Forum" asp-action="Search" method="post">
-                    <input asp-for="SearchQuery" type="text" name="search" placeholder="Search..">
-                    <input asp-for="Category.CategoryId" name="id" type="hidden" />
+                <form class="Search-forum" asp-controller="Category" asp-action="Search" method="post">
+                    <input asp-for="SearchQuery" type="text" placeholder="Search..">
+                    <input asp-for="Category.CategoryId" type="hidden" />
                 </form>
                     <button class="button-add button-mar"><a asp-controller="Question" asp-action="Create" asp-route-id="@Model.Category.CategoryId">
                         <span>Ask Question</span></a>

@@ -18,9 +18,9 @@ namespace OneMits.InterfaceImplementation
             _context = context;
         }
 
-        public async Task Add(Question question)
+        public async Task AddQuestion(Question question)
         {
-            _context.Add(question);
+            _context.Questions.Add(question);
             await _context.SaveChangesAsync();
         }
 
