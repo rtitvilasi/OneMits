@@ -535,8 +535,8 @@ input, textarea {
 .login-box {
     position: relative;
     margin: 100px auto;
-    width: 500px;
-    height: 435px;
+    width: 407px;
+    height: 502px;
     background-color: #fff;
     padding: 10px;
     border-radius: 3px;
@@ -628,7 +628,7 @@ input, textarea {
     .u-form-group input[type="text"],
     .u-form-group input[type="email"],
     .u-form-group input[type="password"] {
-        width: calc(50% - 22px);
+        width: calc(50% - -9px);
         height: 45px;
         outline: none;
         border: 1px solid #ddd;
@@ -639,6 +639,7 @@ input, textarea {
         -webkit-transition: all 0.1s linear;
         -moz-transition: all 0.1s linear;
         transition: all 0.1s linear;
+        Margin: 0px 0px 0px 105px;
     }
 
     .u-form-group input:focus {
@@ -656,6 +657,7 @@ input, textarea {
         padding: 14px 0;
         border-radius: 2px;
         text-transform: uppercase;
+        margin-left: 13px;
     }
 
 .forgot-password {
@@ -1772,22 +1774,22 @@ Create Question
 
 @font-face {
     font-family: Poppins-Regular;
-    src: url('../fonts/poppins/Poppins-Regular.ttf');
+    src: url('../css/fonts/poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: Poppins-Medium;
-    src: url('../fonts/poppins/Poppins-Medium.ttf');
+    src: url('../css/fonts/poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
     font-family: Poppins-Bold;
-    src: url('../fonts/poppins/Poppins-Bold.ttf');
+    src: url('../css/fonts/poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
     font-family: Poppins-SemiBold;
-    src: url('../fonts/poppins/Poppins-SemiBold.ttf');
+    src: url('../css/fonts/poppins/Poppins-SemiBold.ttf');
 }
 
 
