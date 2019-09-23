@@ -9,14 +9,16 @@
     </div>
     <div class="col-md-4">
         <div class="container-contact100-forum-btn" style="margin: 54px 0px 0px 227px;">
-            <button class="contact100-form-btn" asp-controller="Category" asp-action="Topic" asp-route-id="@Model.CategoryId">
-                <a href="admincreate.html">
+            <form asp-controller="Category" asp-action="Topic" asp-route-id="@Model.CategoryId">
+                <button class="contact100-form-btn">
+
                     <span>
                         Back to @Model.CategoryTitle
                         <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                     </span>
-                </a>
-            </button>
+
+                </button>
+            </form>
         </div>
     </div>
 </div>
@@ -59,19 +61,20 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <button class="btn-re"><a asp-controller="Answer" asp-action="Create" asp-route-id="@Model.QuestionId">Add Reply</a></button>
+    <button class="btn-re" href="#section1"><a asp-controller="Answer" asp-action="Create" asp-route-id="@Model.QuestionId">Add Reply</a></button>
 }
 
 @if (Model.Answers.Any())
-{
+{<span class="reply-title">
+        Replies....
+    </span>
+    <br>
     foreach (var reply in Model.Answers)
     {
         <div id="tab1" class="w3-container  city">
             <div class="set-container">
                 <br>
-                <span class="reply-title">
-                    Replies....
-                </span><br>
+
                 <div class="margin"> </div>
                 <div class="answer">
                     <p>
@@ -114,32 +117,32 @@ else
 }
 
 
-<div class="w3-container  city">
-        <div class="set-container-re">
-            <br>
-            <span class="rply-title">
-                Add Your Reply
-            </span><br>
-            <div class="margin"> </div><br>
-            <form class="contact100-form validate-form" asp-action="AddAnswer" asp-route-id="@Model.QuestionId" method="post" id="addPostForm">
-                <div class="container-Recontact">
-                    <div class="wrap-input100 validate-input" data-validate="Message is required">
-                        <label class="label-input100" asp-for="AnswerContent">Reply</label>
-                        <textarea asp-for="AnswerContent" class="input100" placeholder="Your Review About The Question..."></textarea>
-                        <span asp-validation-for="AnswerContent" class="focus-input100"></span>
-                    </div>
-                    <div class="container-contact100-form-btn">
-                        <button class="contact100-form-btn">
-                            <span>
-                                Submit
-                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-                            </span>
-                        </button>
-                    </div>
+<div id="sectiocn1" class="w3-container  city">
+    <div class="set-container-re">
+        <br>
+        <span class="rply-title">
+            Add Your Reply
+        </span><br>
+        <div class="margin"> </div><br>
+        <form class="contact100-form validate-form" asp-action="AddAnswer" asp-route-id="@Model.QuestionId" method="post" id="addPostForm">
+            <div class="container-Recontact">
+                <div class="wrap-input100 validate-input" data-validate="Message is required">
+                    <label class="label-input100" asp-for="AnswerContent">Reply</label>
+                    <textarea asp-for="AnswerContent" class="input100" placeholder="Your Review About The Question..."></textarea>
+                    <span asp-validation-for="AnswerContent" class="focus-input100"></span>
                 </div>
-                <input asp-for="AuthorId" type="hidden" />
-                <input asp-for="CategoryId" type="hidden" />
-                <input asp-for="QuestionId" type="hidden" />
-            </form>
-        </div>
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn">
+                        <span>
+                            Submit
+                            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <input asp-for="AuthorId" type="hidden" />
+            <input asp-for="CategoryId" type="hidden" />
+            <input asp-for="QuestionId" type="hidden" />
+        </form>
     </div>
+</div>
