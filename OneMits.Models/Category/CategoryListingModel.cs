@@ -6,7 +6,7 @@ using OneMits.Data.Models;
 
 namespace OneMits.Models.Category
 {
-    public class CategoryListingModel
+    public class CategoryListingModel : LayoutBaseModel
     {
 
         public int CategoryId { get; set; }

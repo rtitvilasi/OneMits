@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OneMits.Models.Answer
 {
-    public class AnswerModel
+    public class AnswerModel : LayoutBaseModel
     {
         public int AnswerId { get; set; }
         public string AuthorId { get; set; }

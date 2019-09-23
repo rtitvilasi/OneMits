@@ -82,7 +82,7 @@ namespace OneMits.Controllers
                 PopularQuestion = popularQuestions,
                 MostResponseQuestion = mostResponseQuestions,
                 PriorityQuestion = priorityQuestions,
-                searchQuery = " "
+                
             };
         }
 
