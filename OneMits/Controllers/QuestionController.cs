@@ -98,7 +98,7 @@ namespace OneMits.Controllers
             await _questionImplementation.AddQuestion(question);
             await _applicationUserImplementation.UpdateUserRating(userId, typeof(Question));
 
-             return RedirectToAction("Index", "Question",new { id = question.QuestionId });
+             return RedirectToAction("Index", "Question", new { id = question.QuestionId });
 
         }
 

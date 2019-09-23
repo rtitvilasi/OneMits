@@ -1,12 +1,12 @@
 ﻿@model OneMits.Models.Home.HomeIndexModel
-    <a style="float: right; padding: 0px 0px 0px 0px;">
-        <form class="Search-bar" asp-controller="Search" asp-action="Search" method="post">
-            <input asp-for="searchQuery" type="text" placeholder="Search..">
-            <button type="submit" class="btn btn-forumSearch">
-                <i class="material-icons">search</i>
-            </button>
-        </form>
-    </a>
+<a style="float: right; padding: 0px 0px 0px 0px;">
+    <form class="Search-bar" asp-controller="Search" asp-action="Search" method="post">
+        <input asp-for="searchQuery" type="text" placeholder="Search..">
+        <button type="submit" class="btn btn-forumSearch">
+            <i class="material-icons">search</i>
+        </button>
+    </form>
+</a>
 <div class="w3-bar tabsbar">
     <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'tab1')">Recent Question</button>
     <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'tab2')">Popular Question</button>
@@ -14,69 +14,75 @@
     <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'tab4')">Priority Questions</button>
 </div>
 
-@foreach (var question in Model.RecentQuestion)
-{
-    <div id="tab1" class="w3-container  city">
-        <div class="set-container">
-            <div>
-                <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
-                        @question.QuestionTitle
-                    </a>
-                </p>
+
+
+    @foreach (var question in Model.RecentQuestion)
+    {
+
+            <div id="tab1" class="w3-container  city">
+                <div class="set-container">
+                    <div>
+                        <p class="question">
+                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+                                @question.QuestionTitle
+                            </a>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="by-part">
+                            By -
+                            <a asp-controller="Profile"
+                               asp-action="Details"
+                               asp-route-id="@question.AuthorId"
+                               class="take-part">
+                                @question.AuthorName
+                            </a>
+                            &nbsp &nbsp Category -
+                            <a asp-controller="Category"
+                               asp-action="Topic"
+                               asp-route-id="@question.Category.CategoryId"
+                               class="take-part">
+                                @question.Category.CategoryTitle
+                            </a>
+                        </p>
+                    </div>
+                    <div class="margin"> </div>
+                    <div class="answer">
+                        <p>
+                            @question.QuestionContent
+                        </p>
+                    </div>
+
+                    <div class="margin"> </div>
+
+                    <div class="share">
+                        <a target="_blank"><i class="fa fa-heart" style="font-size:25px;"></i></a>
+                        <a target="_blank"><i class="fa fa-history" style="font-size:25px;"></i> @question.QuestionCreated</a>
+                        <a target="_blank">
+                            <i class="fa fa-comment" style="font-size:25px;"></i>
+                            @if (question.AnswerCount == 0)
+
+                            {
+                                <span>No Replies</span>
+                            }
+
+                            else
+                            {
+                                <span>@question.AnswerCount Replies</span>
+                            }
+                        </a>
+
+                        <a href="#" target="_blank">
+                            <i class="fa fa-share-alt-square" style="font-size:25px;"></i>
+                            <p href="#" class="sbutton">Share</p>
+                        </a>
+                    </div>
+
+                </div>
             </div>
-            <div>
-                <p class="by-part">By - 
-                <a 
-                   asp-controller="Profile" 
-                   asp-action="Details" 
-                   asp-route-id="@question.AuthorId" 
-                   class="take-part">@question.AuthorName
-                    </a>
-                &nbsp &nbsp Category - 
-                <a 
-                   asp-controller="Category" 
-                   asp-action="Topic" 
-                   asp-route-id="@question.Category.CategoryId" 
-                   class="take-part">@question.Category.CategoryTitle
-                    </a></p>
-            </div>
-            <div class="margin"> </div>
-            <div class="answer">
-                <p>
-                    @question.QuestionContent
-                </p>
-            </div>
 
-            <div class="margin"> </div>
+    }
 
-            <div class="share">
-                <a target="_blank"><i class="fa fa-heart" style="font-size:25px;"></i></a>
-                <a target="_blank"><i class="fa fa-history" style="font-size:25px;"></i> @question.QuestionCreated</a>
-                <a target="_blank">
-                    <i class="fa fa-comment" style="font-size:25px;"></i>
-                    @if (question.AnswerCount == 0)
-
-                    {
-                        <span>No Replies</span>
-                    }
-
-                    else
-                    {
-                        <span>@question.AnswerCount Replies</span>
-                    }
-                </a>
-
-                <a href="#" target="_blank">
-                    <i class="fa fa-share-alt-square" style="font-size:25px;"></i>
-                    <p href="#" class="sbutton">Share</p>
-                </a>
-            </div>
-
-
-        </div>
-    </div>
-}
 
 
 @foreach (var question in Model.PopularQuestion)
