@@ -1,9 +1,5 @@
 ﻿@model OneMits.Models.Home.HomeIndexModel
-<a style="float: right; padding: 0px 0px 0px 0px;">
-    <form class="Search-bar example" asp-controller="Search" asp-action="Search" method="post">
-        <input asp-for="searchQuery" type="text" placeholder="Search..">
-    </form>
-</a>
+
 <div class="w3-bar tabsbar">
     <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'tab1')">Recent Question</button>
     <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'tab2')">Popular Question</button>
@@ -16,11 +12,11 @@
     @foreach (var question in Model.RecentQuestion)
     {
 
-            <div id="tab1" class="w-container  city">
+            <div id="tab1" class="w3-container  city">
                 <div class="set-container">
                     <div>
                         <p class="question">
-                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="color: #353434;">
+                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
                                 @question.QuestionTitle
                             </a>
                         </p>
@@ -84,11 +80,11 @@
 
 @foreach (var question in Model.PopularQuestion)
 {
-    <div id="tab2" class="w-container  city">
+    <div id="tab2" class="w3-container  city">
         <div class="set-container">
             <div>
-                <p class="question" >
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="color: #353434;">
+                <p class="question">
+                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
                         @question.QuestionTitle
                     </a>
                 </p>
@@ -135,11 +131,11 @@
 
 @foreach (var question in Model.MostResponseQuestion)
 {
-    <div id="tab3" class="w-container  city">
+    <div id="tab3" class="w3-container  city">
         <div class="set-container">
             <div>
                 <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="color: #353434;">
+                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
                         @question.QuestionTitle
                     </a>
                 </p>
@@ -186,11 +182,11 @@
 
 @foreach (var question in Model.PriorityQuestion)
 {
-    <div id="tab4" class="w-container  city">
+    <div id="tab4" class="w3-container  city">
         <div class="set-container">
             <div>
                 <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="color: #353434;">
+                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
                         @question.QuestionTitle
                     </a>
                 </p>

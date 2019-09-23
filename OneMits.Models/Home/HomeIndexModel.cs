@@ -6,9 +6,8 @@ using System.Text;
 
 namespace OneMits.Models.Home
 {
-    public class HomeIndexModel
+    public class HomeIndexModel : LayoutBaseModel
     {
-        public string searchQuery { get; set; }
         public IEnumerable<QuestionListingModel> RecentQuestion { get; set; }
         public IEnumerable<QuestionListingModel> PopularQuestion { get; set; }
         public IEnumerable<QuestionListingModel> MostResponseQuestion { get; set; }

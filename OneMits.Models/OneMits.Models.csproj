@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OneMits.Data\OneMits.Data.csproj" />
+  </ItemGroup>
+
 </Project>

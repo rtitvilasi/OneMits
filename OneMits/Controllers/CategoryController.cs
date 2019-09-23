@@ -40,12 +40,12 @@ namespace OneMits.Controllers
             return View(model);
         }
 
-        public IActionResult Topic(int id, string searchQuery)
+        public IActionResult Topic(int id)
         {
             var category = _categoryImplementation.GetById(id);
             var questions = new List<Question>();
 
-            questions = _questionImplementation.GetFilteredQuestions(category, searchQuery).ToList();
+            questions = _questionImplementation.GetFilteredQuestions(category).ToList();
 
             var questionListings = questions.Select(question => new QuestionListingModel
             {

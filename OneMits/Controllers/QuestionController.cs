@@ -80,8 +80,8 @@ namespace OneMits.Controllers
             var category = _categoryImplementation.GetById(id);
             var model = new NewQuestionModel
             {
-                CategoryTitle = category.CategoryTitle,
                 CategoryId = category.CategoryId,
+                CategoryTitle = category.CategoryTitle,
                 CategoryImageUrl = category.CategoryImageUrl,
                 AuthorName = User.Identity.Name
             };

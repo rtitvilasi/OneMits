@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OneMits.Models.Question
 {
-    public class QuestionListingModel
+    public class QuestionListingModel : LayoutBaseModel
     {
         public int QuestionId { get; set; }
         public string QuestionTitle { get; set; }

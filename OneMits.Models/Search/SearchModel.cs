@@ -5,10 +5,10 @@ using System.Text;
 
 namespace OneMits.Models.Search
 {
-    public class SearchModel
+    public class SearchModel : LayoutBaseModel
     {
         public IEnumerable<QuestionListingModel> Questions { get; set; }
-        public string SearchQuery { get; set; }
+        
         public bool EmptySearchResults { get; set; }
     }
 }
