@@ -10,7 +10,7 @@ namespace OneMits.Data
     {
         Question GetById(int id);
         IEnumerable<Question> GetAll();
-        IEnumerable<Question> GetFilteredQuestions(Category category, string searchQuery);
+        IEnumerable<Question> GetFilteredQuestions(Category category);
         IEnumerable<Question> GetFilteredQuestions(string searchQuery);
         IEnumerable<Question> GetQuestionsByCategory(int id);
         IEnumerable<Question> GetLatestQuestions(int n);

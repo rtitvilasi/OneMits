@@ -53,14 +53,13 @@ namespace OneMits.InterfaceImplementation
             return _context.Questions.Where(question => question.QuestionId == id)
                .Include(question => question.User)
                .Include(question => question.Answers).ThenInclude(answer => answer.User)
-               .Include(question => question.Category)
-               .FirstOrDefault();
+               .Include(Question => Question.Category)
+               .First();
         }
 
-        public IEnumerable<Question> GetFilteredQuestions(Category category, string searchQuery)
+        public IEnumerable<Question> GetFilteredQuestions(Category category)
         {
-            return string.IsNullOrEmpty(searchQuery) ? category.Questions : category.Questions
-               .Where(post => post.QuestionTitle.Contains(searchQuery) || post.QuestionContent.Contains(searchQuery));
+            return category.Questions;
         }
 
         public IEnumerable<Question> GetFilteredQuestions(string searchQuery)
