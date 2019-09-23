@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OneMits</title>
+    <title>@ViewData["Title"] OneMits</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -50,20 +50,19 @@
     <div class="topnav " id="myTopnav">
         <a asp-controller="Home" asp-action="Index">Home</a>
         <a asp-controller="Category" asp-action="Index">Forums</a>
-        <a asp-controller="#" asp-action="Index">Ask Question</a>
+        <a asp-controller="Question" asp-action="Create">Ask Question</a>
         <a asp-controller="Category" asp-action="Index">Events</a>
         <a href="assets\coming-soon-page\dist\index.html">Tag</a>
         <a href="assets\coming-soon-page\dist\index.html">Survey</a>
         <a href="#about">Contect US</a>
-        
+
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
 
     <!--NAvbar end-->
-    <div>
-        <partial name="_CookieConsentPartial" />
+
             @RenderBody()
-    </div>
+
 
     <footer>
         <div class="footer-end mt-50">

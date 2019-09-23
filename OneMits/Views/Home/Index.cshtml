@@ -1,7 +1,8 @@
 ﻿@model OneMits.Models.Home.HomeIndexModel
 <a style="float: right; padding: 0px 0px 0px 0px;">
-    <form class="Search-bar" asp-controller="Search" asp-action="Search" method="post">
+    <form class="Search-bar example" asp-controller="Search" asp-action="Search" method="post">
         <input asp-for="searchQuery" type="text" placeholder="Search..">
+        <button type="submit" class="btn btn-forumSearch"><i class="fa fa-search"></i></button>
     </form>
 </a>
 <div class="w3-bar tabsbar">
