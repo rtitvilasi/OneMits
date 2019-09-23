@@ -1689,6 +1689,11 @@ Reply Tags
 
 
 @media only screen and (max-width:768px) {
+    .w-container {
+        padding: 0px;
+        margin: 0px -7px 0px -7px
+    }
+
     .set-container {
         margin-top: 35px;
         height: auto;
@@ -1699,21 +1704,60 @@ Reply Tags
     }
 
     .by-part {
-        font-size: 14px;
+        font-size: 13px;
         color: #565656;
         font-family: 'Lato', sans-serif;
         letter-spacing: 2px;
-        margin-bottom: 20px;
-        padding: 0px 0px 0px 56px;
+        padding: 0px 0px 0px 37px;
     }
 
     .take-part {
         text-decoration: underline;
-        font-size: 13px;
+        font-size: 12px;
         font-style: italic;
     }
-}
 
+    .question {
+        font-size: 17px;
+        padding: 0px 0px 0px 22px;
+        letter-spacing: 1px;
+    }
+
+    .margin {
+        margin-left: 25px;
+    }
+
+    .answer {
+        font-size: 14px;
+        margin-left: 36px;
+    }
+
+    .ml-800 {
+        margin-left: 0px
+    }
+
+    .tabsbar {
+        margin-top: 29px;
+        font-size: 17px;
+        margin-left: 30px;
+    }
+
+    .sizeIcon {
+        font-size: 18px;
+    }
+
+    .w3-bar .w3-bar-item {
+        padding: 8px 8px;
+    }
+
+    .Search-bar input[type=text] {
+        width: 100px;
+        padding: 5px 0px 5px 0px;
+    }
+
+
+
+}
 
 
 
@@ -2335,7 +2379,7 @@ Search
 
 }
 
-    form.example button:hover {
+form.example button:hover {
         background: #85888a;
     }
 
@@ -2344,3 +2388,6 @@ Search
     clear: both;
     display: table;
 
+
+
+ 
