@@ -61,14 +61,18 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <button class="btn-re" href="#section1"><a asp-controller="Answer" asp-action="Create" asp-route-id="@Model.QuestionId">Add Reply</a></button>
+
+    <button class="btn-re" href="#section1">
+        Add Reply
+    </button>
+
 }
 
 @if (Model.Answers.Any())
 {<span class="reply-title">
         Replies....
     </span>
-    <br>
+    
     foreach (var reply in Model.Answers)
     {
         <div id="tab1" class="w3-container  city">
@@ -83,19 +87,15 @@
                 </div>
 
                 <div>
-                    <p class="by-Repart ml-50">
-                        <strong>By :</strong>
-                        <a asp-controller="Profile" asp-action="Details" asp-route-id="@reply.AuthorId" class="take-part">
+                    
+                    <p class="by-part">
+                        By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@reply.AuthorId" class="take-part">
                             @reply.AuthorName
-                        </a>
+                        </a>&nbsp &nbsp Time -
+                             <a class="take-part">
+                                 @reply.AnswerCreated
+                             </a>
                     </p>
-                    <p class="by-Repart ml-50">
-                        <strong>By :</strong>
-                        <a class="take-part">
-                            @reply.AnswerCreated
-                        </a>
-                    </p>
-
                 </div>
 
                 <div class="margin"> </div> <br><br>

@@ -635,7 +635,7 @@ input, textarea {
         padding: 0 10px;
         border-radius: 2px;
         color: #333;
-        font-size: 0.8rem;
+        font-size: 1.7rem;
         -webkit-transition: all 0.1s linear;
         -moz-transition: all 0.1s linear;
         transition: all 0.1s linear;
@@ -1889,11 +1889,11 @@ Create Question
     display: block;
     width: 100%;
     font-family: Poppins-Bold;
-    font-size: 25px;
+    font-size: 27px;
     color: grey;
     line-height: 1.2;
     text-align: left;
-    padding: 015px 0px 0px 43px;
+    padding: 35px 0px 0px 142px;
 }
 
 .wrap-input100 {
@@ -2234,7 +2234,7 @@ Profile
     width: 150px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 50px 0px 0px 0px;
+    margin: 25px 0px 0px 0px;
 }
 
 .button-mar {
@@ -2265,6 +2265,10 @@ Profile
         opacity: 1;
         right: 0;
     }
+
+.w3-come {
+    padding: 0.5em 16px;
+}
 
 /* -------------------------------- 
 
@@ -2316,5 +2320,27 @@ Search
 
 
 
+.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #c12b28;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    margin : 4px -3px 0px 0px;
+    border-radius: 0px;
 
+}
+
+    form.example button:hover {
+        background: #85888a;
+    }
+
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
 
