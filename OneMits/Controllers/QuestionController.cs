@@ -98,7 +98,7 @@ namespace OneMits.Controllers
             await _questionImplementation.AddQuestion(question);
             await _applicationUserImplementation.UpdateUserRating(userId, typeof(Question));
 
-             return RedirectToAction("Index", "Question",new { questionid = question.QuestionId });
+             return RedirectToAction("Index", "Question",new { id = question.QuestionId });
 
         }
 
@@ -126,7 +126,7 @@ namespace OneMits.Controllers
             await _questionImplementation.AddAnswer(answer);
             await _applicationUserImplementation.UpdateUserRating(userId, typeof(Answer));
 
-            return RedirectToAction("Index", "Question", new { questionid = model.QuestionId });
+            return RedirectToAction("Index", "Question", new { id = model.QuestionId });
         }
 
         private Answer BuildReply(QuestionIndexModel model, ApplicationUser user)
