@@ -6,10 +6,10 @@
             Forums
         </span>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 ">
         @if (Context.User.Identity.IsAuthenticated)
         {
-            <div class="container-contact100-forum-btn" style="margin: 54px 0px 0px 227px;">
+            <div class="container-contact100-forum-btn" >
                 <a asp-controller="Category" asp-action="Create">
                     <button class="contact100-form-btn">
                         <span>
@@ -35,23 +35,25 @@
                                 <span class="contact100-forum-title">
                                     @category.CategoryTitle
                                 </span>
-                            </a>
                                 <span class="label-input100">Number Of Post : @category.QuestionCount</span>
-                                <p class="input-fr">@category.CategoryDescription</p>
+                            
+                                <p class="input-fr">@category.CategoryDescription</p></a>
                             
                         </form>
                     </div>
                     <div id="dropDownSelect1"></div>
                 </div>
                 <div class="col-md-2">
-                    <button class="button-add">
-                        <a class="button-add"
-                           asp-controller="Question" 
-                           asp-action="Create" 
-                           asp-route-id="@category.CategoryId">
-                            <span>Add Post</span>
-                        </a>
-                    </button>
+                    <div class="lad">
+                        <button class="button-add">
+                            <a class="button-add"
+                               asp-controller="Question"
+                               asp-action="Create"
+                               asp-route-id="@category.CategoryId">
+                                <span>Add Post</span>
+                            </a>
+                        </button>
+                    </div>
                 </div>
             </div>
 

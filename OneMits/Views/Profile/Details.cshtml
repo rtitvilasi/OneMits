@@ -2,8 +2,8 @@
 @model OneMits.Models.ApplicationUser.ProfileModel
 @inject UserManager<OneMits.Data.Models.ApplicationUser> profileManager
 
-<div class="w3-container  city">
-    <div class="set-container">
+<div class="w-container  city">
+    <div class="set-pro">
         <div class="row">
             <div class="col-md-2">
                 <div class="image-cropper" id="userProfileImage" style="background-image:url(@Model.ProfileImageUrl)">
@@ -37,9 +37,9 @@
 
             </div>
             <div class="col-md-2">
-                <div class="share-pro">
-                    <a><i class="fa fa-heart" style="font-size:40px;"></i></a>
-                    <a href="#" class="like-text">223</a>
+                <div class="share-pro" >
+                    <a class="like-text"><i class="fa fa-heart like-text" style="font-size:32px;"></i>22x3</a>
+                    
                 </div>
             </div>
         </div>
@@ -51,7 +51,7 @@
 <button class="btn-re">Answered</button>
 <button class="btn-re">Asked</button>
 
-<div id="tab1" class="w3-container  city">
+<div id="tab1" class="w-container  city">
     <div class="set-container">
         <div>
             <p class="question">

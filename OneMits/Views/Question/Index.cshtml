@@ -8,13 +8,12 @@
         </span>
     </div>
     <div class="col-md-4">
-        <div class="container-contact100-forum-btn" style="margin: 54px 0px 0px 227px;">
+        <div class="container-contact100-forum-btn" >
             <form asp-controller="Category" asp-action="Topic" asp-route-id="@Model.CategoryId">
                 <button class="contact100-form-btn">
 
                     <span>
                         Back to @Model.CategoryTitle
-                        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                     </span>
 
                 </button>
@@ -23,7 +22,7 @@
     </div>
 </div>
 
-<div id="tab1" class="w3-container  city">
+<div id="tab1" class="w-container  city">
     <div class="set-container">
         <div>
             <p class="question">@Model.QuestionTitle</p>
@@ -59,14 +58,14 @@
 </div>
 
 
-@if (User.Identity.IsAuthenticated)
+@*@if (User.Identity.IsAuthenticated)
 {
-
+<div>
     <button class="btn-re" href="#section1">
         Add Reply
     </button>
-
-}
+</div>
+}*@
 
 @if (Model.Answers.Any())
 {<span class="reply-title">
@@ -75,7 +74,7 @@
     
     foreach (var reply in Model.Answers)
     {
-        <div id="tab1" class="w3-container  city">
+        <div id="tab1" class="w-container  city">
             <div class="set-container">
                 <br>
 
@@ -98,18 +97,28 @@
                     </p>
                 </div>
 
-                <div class="margin"> </div> <br><br>
+                <div class="margin"> </div> 
+                <div class="share">
+                    <a><i class="fa fa-heart" style="font-size:25px;"></i></a>
+                    <a><i class="fa fa-history" style="font-size:25px;"></i> @Model.QuestionCreated</a>
+                    <a><i class="fa fa-comment" style="font-size:25px;"></i> @Model.AnswerCount</a>
+
+                    <a href="#" target="_blank">
+                        <i class="fa fa-share-alt-square" style="font-size:25px;"></i>
+                        <p href="#" class="sbutton">Share</p>
+                    </a>
+                </div>
 
             </div>
         </div>
     }
 
-    <button class="btn-re" style="margin-left: 600px">More Answers</button>
+    @*<button class="btn-re more-add" style="margin-left: 600px">More Answers</button>*@
 }
 
 else
 {
-    <div class="noPosts">
+    <div class="noreply">
         <h3>
             There are no Replies to this post.
         </h3>
@@ -117,7 +126,7 @@ else
 }
 
 
-<div id="sectiocn1" class="w3-container  city">
+<div id="sectiocn1" class="w-container  city">
     <div class="set-container-re">
         <br>
         <span class="rply-title">

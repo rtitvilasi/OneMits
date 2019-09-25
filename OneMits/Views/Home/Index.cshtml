@@ -12,11 +12,11 @@
     @foreach (var question in Model.RecentQuestion)
     {
 
-            <div id="tab1" class="w3-container  city">
+            <div id="tab1" class="w-container  city">
                 <div class="set-container">
                     <div>
                         <p class="question">
-                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
                                 @question.QuestionTitle
                             </a>
                         </p>
@@ -80,11 +80,11 @@
 
 @foreach (var question in Model.PopularQuestion)
 {
-    <div id="tab2" class="w3-container  city">
+    <div id="tab2" class="w-container  city">
         <div class="set-container">
             <div>
                 <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
                         @question.QuestionTitle
                     </a>
                 </p>
@@ -131,11 +131,11 @@
 
 @foreach (var question in Model.MostResponseQuestion)
 {
-    <div id="tab3" class="w3-container  city">
+    <div id="tab3" class="w-container  city">
         <div class="set-container">
             <div>
                 <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
                         @question.QuestionTitle
                     </a>
                 </p>
@@ -182,11 +182,11 @@
 
 @foreach (var question in Model.PriorityQuestion)
 {
-    <div id="tab4" class="w3-container  city">
+    <div id="tab4" class="w-container  city">
         <div class="set-container">
             <div>
                 <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
                         @question.QuestionTitle
                     </a>
                 </p>

@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@model  OneMits.Models.LayoutBaseModel
+
 @inject SignInManager<OneMits.Data.Models.ApplicationUser> SignInManager
 @inject UserManager<OneMits.Data.Models.ApplicationUser> UserManager
 
@@ -35,7 +35,7 @@
     <header role="banner" class="">
         <div id="cd-logo">
             <h2>
-                <a asp-controller="Home" asp-action="Index" class="cl-white Site-name">MITS One</a>
+                <a asp-controller="Home" asp-action="Index" class="cl-white Site-name">One MITS</a>
             </h2>
         </div>
 
@@ -58,7 +58,7 @@
         <a href="#about">Contect US</a>
         <a style="float: right; padding: 0px 0px 0px 0px;">
             <form class="Search-bar example" asp-controller="Search" asp-action="Search" method="post">
-                <input asp-for="SearchQuery" type="text" placeholder="Search..">
+                <input for="SearchQuery" type="text" placeholder="Search..">
                
             </form>
         </a>
