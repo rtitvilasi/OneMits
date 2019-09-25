@@ -6,7 +6,7 @@ using System.Text;
 
 namespace OneMits.Models.Category
 {
-    public class CategoryTopicModel : LayoutBaseModel
+    public class CategoryTopicModel
     {
         public CategoryListingModel Category { get; set; }
         public IEnumerable<QuestionListingModel> Questions { get; set; }

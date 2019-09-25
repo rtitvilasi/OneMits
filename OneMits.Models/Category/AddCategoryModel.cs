@@ -5,7 +5,7 @@ using System.Text;
 
 namespace OneMits.Models.Category
 {
-    public class AddCategoryModel : LayoutBaseModel
+    public class AddCategoryModel
     {
         public string CategoryTitle { get; set; }
         public string CategoryDescription { get; set; }

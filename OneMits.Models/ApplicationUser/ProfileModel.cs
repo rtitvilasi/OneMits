@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OneMits.Models.ApplicationUser
 {
-    public class ProfileModel : LayoutBaseModel
+    public class ProfileModel
     {
         public string UserId { get; set; }
         public string Email { get; set; }

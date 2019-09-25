@@ -1,18 +1,6 @@
 ﻿@model OneMits.Models.Search.SearchModel
 
-<div class="row sectionHeader">
-    <div class="sectionHeading">
-        <span>Search Results for: @Model.SearchQuery</span>
-        <form class="Search-bar" asp-controller="Search" asp-action="Search" method="post">
-            <div class="searchForm">
-                <input asp-for="SearchQuery" type="text" placeholder="Search...." class="searchBar" onfocus="clearThis(this)" />
-                <button type="submit" class="btn btn-forumSearch">
-                    <i class="material-icons">search</i>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
+
 
 @if (!Model.EmptySearchResults)
 {

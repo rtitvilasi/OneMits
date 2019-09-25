@@ -2,7 +2,7 @@
 
 namespace OneMits.Models
 {
-    public class ErrorViewModel : LayoutBaseModel
+    public class ErrorViewModel 
     {
         public string RequestId { get; set; }
 
