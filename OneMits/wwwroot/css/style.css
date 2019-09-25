@@ -1395,6 +1395,7 @@ FOOTER
         padding-bottom: 10px;
         width: 100%;
         bottom: 0;
+       
     }
 
     .noPosts {
@@ -1680,7 +1681,6 @@ Reply Tags
         background-color: #d6d7d8;
         height: auto;
         width: 1250px;
-        border-radius: 5px;
         margin-left: auto;
         margin-right: auto;
         padding: 8px 16px 9px 25px;
@@ -1710,37 +1710,47 @@ Reply Tags
         padding: 8px 16px 9px 25px;
     }
 
-    .question {
-        margin-bottom: 5px;
-        font-size: 19px;
-        padding: 0px 0px 0px 0px;
-        font-weight: 600;
-        color: #353434;
-        letter-spacing: 2px;
-        font-family: 'Roboto', sans-serif;
-    }
+.question {
+    margin-bottom: 5px;
+    font-size: 19px;
+    padding: 0px 0px 0px 0px;
+    font-weight: 600;
+    color: #353434;
+    letter-spacing: 2px;
+    font-family: Poppins-SemiBold;
+}
 
-    .margin {
-        border-bottom: 2px solid #b7b5b5;
-        width: 90%;
-        margin-left: 50px;
-    }
+.margin {
+    border-bottom: 2px solid #b7b5b5;
+    width: 90%;
+    margin-left: 50px;
+    margin-bottom: 4px;
+}
 
     .hide-me {
         display: none;
     }
 
-    .answer {
-        font-size: 16px;
-        padding: 0px 0px 0px 0px;
-        color: #565656;
-        font-family: 'Lato', sans-serif;
-        letter-spacing: 2px;
-        margin-left: 45px;
-        margin-right: 20px;
-        margin-top: 13px;
-    }
-
+.answer {
+    font-size: 16px;
+    padding: 0px 0px 0px 0px;
+    color: #565656;
+    font-family: Poppins-SemiBold;
+    letter-spacing: 2px;
+    margin-left: 45px;
+    margin-right: 20px;
+    margin-top: 13px;
+}
+.answer2 {
+    font-size: 14px;
+    padding: 0px 0px 0px 0px;
+    color: #565656;
+    font-family: Poppins-SemiBold;
+    letter-spacing: 1px;
+    margin-left: 45px;
+    margin-right: 20px;
+    margin-top: 13px;
+}
     .descp {
         font-size: 16px;
         color: #565656;
@@ -1785,8 +1795,17 @@ Reply Tags
         text-decoration: none;
     }
 
-    @media only screen and (max-width:768px) {
-        .w-container {
+
+.like-style {
+    margin: 0px 69px 0px 107px;
+}
+
+.like-com{
+    padding:0px 0px 0px 0px;
+}
+
+@media only screen and (max-width:768px) {
+    .w-container {
             padding: 0px;
             margin: 0px -7px 0px -7px
         }
@@ -1826,6 +1845,10 @@ Reply Tags
 
         .answer {
             font-size: 14px;
+            margin-left: 36px;
+        }
+        .answer2 {
+            font-size: 12px;
             margin-left: 36px;
         }
 
@@ -1872,7 +1895,21 @@ Reply Tags
             margin-right: auto;
             padding: 8px 16px 9px 25px;
         }
+
+    .like-style {
+        margin: 0px 103px 0px 50px;
     }
+
+
+    .time-style {
+        margin: 0px 103px 0px 50px;
+    }
+
+    .mt-time{
+        margin-top: 4px;
+        margin-bottom: 2px;
+    }
+ }
 
 
 
