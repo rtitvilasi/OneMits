@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OneMits.Data;
 using OneMits.Data.Models;
@@ -97,9 +99,18 @@ namespace OneMits.Controllers
             };
         }
 
+        
+
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _questionImplementation.Delete(id);
+            return RedirectToAction("Index", "Home");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

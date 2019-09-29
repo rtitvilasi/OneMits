@@ -88,6 +88,25 @@ namespace OneMits.Controllers
             return View(model);
         }
 
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _questionImplementation.Delete(id);
+            return RedirectToAction("Index", "Question", new { id = 20 });
+        }
+        [Authorize]
+        public async Task<IActionResult> DeleteAnswer(int id)
+        {
+            var answer = _questionImplementation.GetAnswerById(id);
+            var model = new AnswerModel
+            {
+                QuestionId = answer.Question.QuestionId
+            };
+            await _questionImplementation.DeleteAnswer(id);
+            return RedirectToAction("Index", "Question", new { id = model.QuestionId});
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> AddQuestion(NewQuestionModel model)
         {
@@ -140,5 +159,8 @@ namespace OneMits.Controllers
                 User = user
             };
         }
+
+
+
     }
 }

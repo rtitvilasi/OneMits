@@ -1,0 +1,31 @@
+﻿@page
+@model OTPModel
+
+<form method="get" id="form1" runat="server">
+    <table width="20%" bgcolor="0099CC" align="center">
+
+
+
+        <tr>
+            
+            <td>
+            <label asp-for="Input.TextBox1">name</label>
+            <input asp-for="Input.TextBox1" class="form-control" runat="server"/>
+            <span asp-validation-for="Input.TextBox1" class="text-danger"></span></td>
+        </tr>
+
+        <tr>
+            
+            <td>
+                <label asp-for="Input.TxtEmail"></label>
+                <input asp-for="Input.TxtEmail" class="form-control" runat="server" />
+                <span asp-validation-for="Input.TxtEmail" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="submit"  value="Login" name="Button1" runat="server" onclick="Button1_Click1"></td>
+        </tr>
+
+    </table>
+</form>

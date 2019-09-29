@@ -33,12 +33,18 @@
                 @Html.Raw(Model.QuestionContent)
             </p>
         </div>
+        @if (User.Identity.Name == Model.AuthorName)
+        {
+            <a class="like-style float-r" asp-controller="Question" asp-action="Delete" asp-route-id="@Model.QuestionId">
+                <i class="fa fa-trash" style="font-size:20px;"></i>
+            </a>
+        }
         <div>
             <p class="by-part">
-                By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@Model.AuthorId" >
+                By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@Model.AuthorId">
                     @Model.AuthorName
                 </a>&nbsp &nbsp Category -
-                <a asp-controller="Category" asp-action="Topic" asp-route-id="@Model.CategoryId" >
+                <a asp-controller="Category" asp-action="Topic" asp-route-id="@Model.CategoryId">
                     @Model.CategoryTitle
                 </a>
             </p>
@@ -91,7 +97,12 @@
                         @reply.AnswerContent
                     </p>
                 </div>
-
+                @if (User.Identity.Name == reply.AuthorName)
+                {
+                    <a class="like-style float-r" asp-action="DeleteAnswer" asp-route-id="@reply.AnswerId">
+                        <i class="fa fa-trash" style="font-size:20px;"></i>
+                    </a>
+                }
                 <div>
 
                     <p class="by-part">

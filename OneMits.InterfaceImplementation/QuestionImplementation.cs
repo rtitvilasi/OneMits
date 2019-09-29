@@ -30,9 +30,18 @@ namespace OneMits.InterfaceImplementation
             await _context.SaveChangesAsync();
         }
 
-        public Task Delete(int Questionid)
+        public async Task  Delete(int Questionid)
         {
-            throw new NotImplementedException();
+            var question = GetById(Questionid);
+            _context.Remove(question);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAnswer(int Answerid)
+        {
+            var answer = GetAnswerById(Answerid);
+            _context.Remove(answer);
+            await _context.SaveChangesAsync();
         }
 
         public Task EditQuestionContent(int id, string newContent)
@@ -55,6 +64,12 @@ namespace OneMits.InterfaceImplementation
                .Include(question => question.Answers).ThenInclude(answer => answer.User)
                .Include(Question => Question.Category)
                .First();
+        }
+
+        public Answer GetAnswerById(int id)
+        {
+            return _context.Answers.Where(answer => answer.AnswerId == id)
+                .First();
         }
 
         public IEnumerable<Question> GetFilteredQuestions(Category category)
@@ -93,5 +108,7 @@ namespace OneMits.InterfaceImplementation
                 .Where(category => category.CategoryId == id).First()
                 .Questions;
         }
+
+        
     }
 }

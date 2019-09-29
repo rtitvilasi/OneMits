@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OneMits.Data;
 using OneMits.Data.Models;
 using OneMits.InterfaceImplementation;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace OneMits
 {
@@ -42,8 +43,10 @@ namespace OneMits
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<ICategory, CategoryImplementation>();
             services.AddScoped<IQuestion, QuestionImplementation>();
+            services.AddScoped<IAnswer, AnswerImplementation>();
             services.AddScoped<IApplicationUser, ApplicationUserImplementation>();
             services.AddTransient<AdminRoleCreation>();
+            services.AddTransient<IEmailSender, EmailSenderImplementation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

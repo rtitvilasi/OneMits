@@ -83,21 +83,20 @@ $('.fa-heart').on('click', function (event, count) {
 Dyanmic TAgs
 
 -------------------------------- */
+$('.tabgroup > div').hide();
+$('.tabgroup > div:first-of-type').show();
+$('.tabs a').click(function (e) {
+    e.preventDefault();
+    var $this = $(this),
+        tabgroup = '#' + $this.parents('.tabs').data('tabgroup'),
+        others = $this.closest('li').siblings().children('a'),
+        target = $this.attr('href');
+    others.removeClass('active');
+    $this.addClass('active');
+    $(tabgroup).children('div').hide();
+    $(target).show();
 
-function openCity(evt, cityName) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " w3-red";
-}
-
+})
 /* -------------------------------- 
 
 Dyanmic TAgs

@@ -9,6 +9,7 @@ namespace OneMits.Data
     public interface IQuestion
     {
         Question GetById(int id);
+        Answer GetAnswerById(int id);
         IEnumerable<Question> GetAll();
         IEnumerable<Question> GetFilteredQuestions(Category category);
         IEnumerable<Question> GetFilteredQuestions(string searchQuery);
@@ -22,5 +23,6 @@ namespace OneMits.Data
         Task Delete(int Questionid);
         Task EditQuestionContent(int id, string newContent);
         Task AddAnswer(Answer answer);
+        Task DeleteAnswer(int Answerid);
     }
 }

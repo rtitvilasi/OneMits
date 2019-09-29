@@ -21,11 +21,16 @@
             <div class="col-md-3">
                 @if (Context.User.Identity.IsAuthenticated)
                 {
-                    <button class="button-add button-mar"><a asp-controller="Question" asp-action="Create" asp-route-id="@Model.Category.CategoryId">
-                        <span style="color: white;">Ask Question</span></a>
+                    <a class="droum-style" asp-controller="Category" asp-action="Delete" asp-route-id="@Model.Category.CategoryId">
+                <i class="fa fa-trash" style="font-size:20px;"></i></a>
+
+                    <button class="button-add button-mar">
+                        <a asp-controller="Question" asp-action="Create" asp-route-id="@Model.Category.CategoryId">
+                            <span style="color: white;">Ask Question</span>
+                        </a>
                     </button>
                 }
-                </div>
+            </div>
         </div>
     </div>
 
