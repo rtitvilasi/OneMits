@@ -46,7 +46,14 @@
         </div>
         <div class="margin"> </div>
         <div class="share">
-            <a><i class="fa fa-heart" style="font-size:25px;"></i></a>
+           
+                <button class="contact100-form-btn" id="Like">
+                   
+                        <i class="fa fa-heart" style="font-size:25px;" aria-hidden="true"></i>
+                    
+                    <span id="likecount">@Model.LikeCount </span>
+                </button>
+     
             <a><i class="fa fa-history" style="font-size:25px;"></i> @Model.QuestionCreated</a>
             <a><i class="fa fa-comment" style="font-size:25px;"></i> @Model.AnswerCount</a>
 

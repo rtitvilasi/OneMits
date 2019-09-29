@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using OneMits.Data.Models;
+using OneMits.Data;
 
 namespace OneMits.Areas.Identity.Pages.Account
 {
@@ -18,11 +19,15 @@ namespace OneMits.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IApplicationUser _applicationUserImplementation;
+        private static UserManager<ApplicationUser> _userManager;
 
-        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApplicationUser> signInManager, ILogger<LoginModel> logger, UserManager<ApplicationUser> userManager, IApplicationUser applicationUserImplementation)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userManager = userManager;
+            _applicationUserImplementation = applicationUserImplementation;
         }
 
         [BindProperty]
@@ -78,6 +83,13 @@ namespace OneMits.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    
+                    var LoginModel = new LoginTime
+                    {
+                        Time = DateTime.Now,
+                        UserName = Input.UserName
+                    };
+                    await _applicationUserImplementation.AddLoginTime(LoginModel);
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

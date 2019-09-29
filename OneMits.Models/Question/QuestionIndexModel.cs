@@ -17,6 +17,7 @@ namespace OneMits.Models.Question
         public DateTime QuestionCreated { get; set; }
         public string QuestionContent { get; set; }
         public bool IsAuthorAdmin { get; set; }
+        public int LikeCount { get; set; }
 
         public int AnswerId { get; set; }
         public DateTime AnswerCreated { get; set; }

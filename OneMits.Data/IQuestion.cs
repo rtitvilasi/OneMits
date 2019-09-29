@@ -22,5 +22,6 @@ namespace OneMits.Data
         Task Delete(int Questionid);
         Task EditQuestionContent(int id, string newContent);
         Task AddAnswer(Answer answer);
+        Task AddLike(LikeQuestion likeQuestion);
     }
 }

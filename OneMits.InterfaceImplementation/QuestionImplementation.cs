@@ -29,6 +29,11 @@ namespace OneMits.InterfaceImplementation
             _context.Answers.Add(answer);
             await _context.SaveChangesAsync();
         }
+        public async Task AddLike(LikeQuestion likeQuestion)
+        {
+            _context.LikeQuestions.Add(likeQuestion);
+            await _context.SaveChangesAsync();
+        }
 
         public Task Delete(int Questionid)
         {
@@ -52,6 +57,7 @@ namespace OneMits.InterfaceImplementation
         {
             return _context.Questions.Where(question => question.QuestionId == id)
                .Include(question => question.User)
+               .Include(question => question.LikeQuestions)
                .Include(question => question.Answers).ThenInclude(answer => answer.User)
                .Include(Question => Question.Category)
                .First();
