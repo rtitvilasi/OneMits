@@ -90,7 +90,7 @@ namespace OneMits.InterfaceImplementation
 
         public IEnumerable<Question> GetLatestQuestions(int n)
         {
-            return GetAll().OrderByDescending(question => question.QuestionCreated).Take(n);
+            return GetAll().OrderByDescending(question => question.Answers.Count()).Take(n);
         }
 
         public IEnumerable<Question> GetMostResponseQuestions(int n)
