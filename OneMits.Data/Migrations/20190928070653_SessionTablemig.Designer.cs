@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OneMits.Data;
 
 namespace OneMits.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190928070653_SessionTablemig")]
+    partial class SessionTablemig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -280,15 +282,17 @@ namespace OneMits.Data.Migrations
 
             modelBuilder.Entity("OneMits.Data.Models.LoginTime", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Time");
 
-                    b.Property<string>("UserName");
+                    b.Property<string>("UserId");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("LoginTime");
                 });
@@ -316,21 +320,6 @@ namespace OneMits.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("OneMits.Data.Models.Tbl_data", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tbl_data");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -408,6 +397,13 @@ namespace OneMits.Data.Migrations
 
                     b.HasOne("OneMits.Data.Models.ApplicationUser", "User")
                         .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("OneMits.Data.Models.LoginTime", b =>
+                {
+                    b.HasOne("OneMits.Data.Models.ApplicationUser", "User")
+                        .WithMany("LoginTime")
                         .HasForeignKey("UserId");
                 });
 

@@ -12,5 +12,6 @@ namespace OneMits.Data.Models
 
         public virtual ApplicationUser User { get; set; }
         public virtual Question Question { get; set; }
+        public virtual IEnumerable<LikeAnswer> LikeAnswers { get; set; }
     }
 }

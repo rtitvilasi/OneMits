@@ -15,6 +15,8 @@ namespace OneMits.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
-        public DbSet<Tbl_data> Tbl_data { get; set; }
+        public DbSet<LikeAnswer> LikeAnswers { get; set; }
+        public DbSet<LikeQuestion> LikeQuestions { get; set; }
+        public DbSet<LoginTime> LoginTime { get; set; }
     }
 }

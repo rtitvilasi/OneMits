@@ -40,13 +40,13 @@ namespace OneMits
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<ICategory, CategoryImplementation>();
             services.AddScoped<IQuestion, QuestionImplementation>();
-            services.AddScoped<IAnswer, AnswerImplementation>();
             services.AddScoped<IApplicationUser, ApplicationUserImplementation>();
             services.AddTransient<AdminRoleCreation>();
-            services.AddTransient<IEmailSender, EmailSenderImplementation>();
+            services.AddSingleton<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

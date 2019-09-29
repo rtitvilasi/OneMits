@@ -49,5 +49,11 @@ namespace OneMits.InterfaceImplementation
             _context.Update(user);
             await _context.SaveChangesAsync();
         }
+
+        public async Task AddLoginTime(LoginTime loginTime)
+        {
+            _context.LoginTime.Add(loginTime);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using OneMits.Data;
 using OneMits.Data.Models;
 using OneMits.Models.Answer;
+using OneMits.Models.Like;
 using OneMits.Models.Question;
 
 namespace OneMits.Controllers
@@ -47,7 +48,8 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 CategoryId = question.Category.CategoryId,
                 CategoryTitle = question.Category.CategoryTitle,
-                IsAuthorAdmin = IsAuthorAdmin(question.User)
+                IsAuthorAdmin = IsAuthorAdmin(question.User),
+                LikeCount = question.LikeQuestions.Count()
 
             };
 
@@ -87,32 +89,25 @@ namespace OneMits.Controllers
             };
             return View(model);
         }
-
-        [Authorize]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _questionImplementation.Delete(id);
-            return RedirectToAction("Index", "Question", new { id = 20 });
-        }
-        [Authorize]
-        public async Task<IActionResult> DeleteAnswer(int id)
-        {
-            var answer = _questionImplementation.GetAnswerById(id);
-            var model = new AnswerModel
-            {
-                QuestionId = answer.Question.QuestionId
-            };
-            await _questionImplementation.DeleteAnswer(id);
-            return RedirectToAction("Index", "Question", new { id = model.QuestionId});
-        }
-
+       
 
         [HttpPost]
         public async Task<IActionResult> AddQuestion(NewQuestionModel model)
         {
+
+            IList<string> censoredWords = new List<string>
+                {
+                    "fuck",
+                    "chutiya",
+                    "bsdk",
+                    "motherfucker",
+                };
+           
             var userId = _userManager.GetUserId(User);
             var user = _userManager.FindByIdAsync(userId).Result;
             var question = BuildPost(model, user);
+            Censor censor = new Censor(censoredWords);
+            question.QuestionTitle = censor.CensorText(question.QuestionTitle);
 
             await _questionImplementation.AddQuestion(question);
             await _applicationUserImplementation.UpdateUserRating(userId, typeof(Question));
@@ -159,8 +154,34 @@ namespace OneMits.Controllers
                 User = user
             };
         }
+  
+        [Authorize]
+        public async Task<int> AddLike(int questionId)
+        {
+            var userId = _userManager.GetUserId(User);
+            var user = await _userManager.FindByIdAsync(userId);
 
+            var likeQuestion = BuildLike(questionId, user);
 
+            await _questionImplementation.AddLike(likeQuestion);
+            var question = _questionImplementation.GetById(questionId);
+            var model = new QuestionIndexModel
+            {
+                LikeCount = question.LikeQuestions.Count()
+            };
 
+            return model.LikeCount;
+        }
+
+        private LikeQuestion BuildLike(int questionId, ApplicationUser user)
+        {
+            var question = _questionImplementation.GetById(questionId);
+            return new LikeQuestion
+            {
+                Question = question,
+                IsLike = true,
+                User = user
+            };
+        }
     }
 }
