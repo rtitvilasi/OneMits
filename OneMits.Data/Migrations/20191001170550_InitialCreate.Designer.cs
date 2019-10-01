@@ -10,8 +10,8 @@ using OneMits.Data;
 namespace OneMits.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190926065158_LikeCreated")]
-    partial class LikeCreated
+    [Migration("20191001170550_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -278,6 +278,21 @@ namespace OneMits.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("LikeQuestions");
+                });
+
+            modelBuilder.Entity("OneMits.Data.Models.LoginTime", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Time");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LoginTime");
                 });
 
             modelBuilder.Entity("OneMits.Data.Models.Question", b =>

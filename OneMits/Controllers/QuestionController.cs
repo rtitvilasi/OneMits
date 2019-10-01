@@ -94,26 +94,19 @@ namespace OneMits.Controllers
         [HttpPost]
         public async Task<IActionResult> AddQuestion(NewQuestionModel model)
         {
-
-            IList<string> censoredWords = new List<string>
-                {
-                    "fuck",
-                    "chutiya",
-                    "bsdk",
-                    "motherfucker",
-                };
-           
             var userId = _userManager.GetUserId(User);
             var user = _userManager.FindByIdAsync(userId).Result;
             var question = BuildPost(model, user);
+
+            string[] censoredWords = System.IO.File.ReadAllLines(@"C:\Users\Rishabh Titvilasi\Source\Repos\rtitvilasi\OneMits\OneMits\CensoredWords.txt");
             Censor censor = new Censor(censoredWords);
             question.QuestionTitle = censor.CensorText(question.QuestionTitle);
+            question.QuestionContent = censor.CensorText(question.QuestionContent);
 
             await _questionImplementation.AddQuestion(question);
             await _applicationUserImplementation.UpdateUserRating(userId, typeof(Question));
 
              return RedirectToAction("Index", "Question", new { id = question.QuestionId });
-
         }
 
         private Question BuildPost(NewQuestionModel model, ApplicationUser user)
@@ -136,6 +129,10 @@ namespace OneMits.Controllers
             var user = await _userManager.FindByIdAsync(userId);
 
             var answer = BuildReply(model, user);
+
+            string[] censoredWords = System.IO.File.ReadAllLines(@"C:\Users\Rishabh Titvilasi\Source\Repos\rtitvilasi\OneMits\OneMits\CensoredWords.txt");
+            Censor censor = new Censor(censoredWords);
+            answer.AnswerContent = censor.CensorText(answer.AnswerContent);
 
             await _questionImplementation.AddAnswer(answer);
             await _applicationUserImplementation.UpdateUserRating(userId, typeof(Answer));
