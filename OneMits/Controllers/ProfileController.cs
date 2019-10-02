@@ -28,7 +28,6 @@ namespace OneMits.Controllers
             {
                 UserId = user.Id,
                 UserName = user.UserName,
-                EnrollmentNumber = user.EnrollmentNumber,
                 UserRating = user.Rating.ToString(),
                 MemberSince = user.MemberSince,
                 Email = user.Email,

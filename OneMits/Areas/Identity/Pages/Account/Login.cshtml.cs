@@ -90,6 +90,13 @@ namespace OneMits.Areas.Identity.Pages.Account
                         UserName = Input.UserName
                     };
                     await _applicationUserImplementation.AddLoginTime(LoginModel);
+                    var user = _applicationUserImplementation.GetByUserName(Input.UserName);
+                    
+                    if (!user.EmailConfirmed)
+                    {
+                        await _signInManager.SignOutAsync();
+                        return RedirectToAction("Index", "Home");
+                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
