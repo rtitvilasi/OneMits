@@ -1,251 +1,274 @@
 ﻿@model OneMits.Models.Home.HomeIndexModel
 
-<div class="w3-bar tabsbar">
-    <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'tab1')">Recent Question</button>
-    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'tab2')">Popular Question</button>
-    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'tab3')">Most Responses</button>
-    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'tab4')">Priority Questions</button>
+<ul class="w3-bar tabsbar">
+    <li class="active w3-bar-item w3-button tablink w3-red">
+    <a data-toggle="tab" href="#home" style="color: white">Recent Question</a>
+    </li>
+    <li class="w3-bar-item w3-button tablink" >
+    <a data-toggle="tab" href="#menu1">Popular Question</a>
+    </li>
+    <li class="w3-bar-item w3-button tablink w3-red " >
+    <a data-toggle="tab" href="#menu2" style="color: white">Most Responses</a>
+    </li>
+    <li class="w3-bar-item w3-button tablink" >
+    <a data-toggle="tab" href="#menu3">Priority Questions</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        @foreach (var question in Model.RecentQuestion)
+        {
+
+            <div id="tab1" class="w-container  city">
+                <div class="set-container">
+
+                    <div>
+                        <p class="question">
+                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
+                                @question.QuestionTitle
+                            </a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="by-part">
+                            By -
+                            <a asp-controller="Profile"
+                               asp-action="Details"
+                               asp-route-id="@question.AuthorId">
+                                @question.AuthorName
+                            </a>
+                            &nbsp &nbsp Category -
+                            <a asp-controller="Category"
+                               asp-action="Topic"
+                               asp-route-id="@question.Category.CategoryId">
+                                @question.Category.CategoryTitle
+                            </a>
+                        </p>
+                    </div>
+                    <div class="answer">
+                        <p>
+                            @question.QuestionContent
+                        </p>
+                    </div>
+
+                    <div class="margin"> </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="like-com">
+                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+
+                                <a>
+                                    <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
+                                    @if (question.AnswerCount == 0)
+
+                                    {
+                                        <span>No Replies</span>
+                                    }
+
+                                    else
+                                    {
+                                        <span>@question.AnswerCount Replies</span>
+                                    }
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-time">
+                            <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        @foreach (var question in Model.PopularQuestion)
+        {
+            <div id="tab2" class="w-container  city">
+                <div class="set-container">
+                    <div>
+                        <p class="question">
+                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
+                                @question.QuestionTitle
+                            </a>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="by-part">
+                            By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@question.AuthorId">
+                                @question.AuthorName
+                            </a>&nbsp &nbsp Category -
+                            <a asp-controller="Category" asp-action="Topic" asp-route-id="@question.Category.CategoryId">@question.Category.CategoryTitle</a>
+                        </p>
+                    </div>
+                    <div class="answer">
+                        <p>
+                            @question.QuestionContent
+                        </p>
+                    </div>
+
+                    <div class="margin"> </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="like-com">
+                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+
+                                <a>
+                                    <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
+                                    @if (question.AnswerCount == 0)
+
+                                    {
+                                        <span>No Replies</span>
+                                    }
+
+                                    else
+                                    {
+                                        <span>@question.AnswerCount Replies</span>
+                                    }
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-time">
+                            <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        @foreach (var question in Model.MostResponseQuestion)
+        {
+            <div id="tab3" class="w-container  city">
+                <div class="set-container">
+                    <div>
+                        <p class="question">
+                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
+                                @question.QuestionTitle
+                            </a>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="by-part">
+                            By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@question.AuthorId" class="take-part">
+                                @question.AuthorName
+                            </a>&nbsp &nbsp Category -
+                            <a asp-controller="Category" asp-action="Topic" asp-route-id="@question.Category.CategoryId">@question.Category.CategoryTitle</a>
+                        </p>
+                    </div>
+                    <div class="answer">
+                        <p>
+                            @question.QuestionContent
+                        </p>
+                    </div>
+
+                    <div class="margin"> </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="like-com">
+                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+
+                                <a>
+                                    <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
+                                    @if (question.AnswerCount == 0)
+
+                                    {
+                                        <span>No Replies</span>
+                                    }
+
+                                    else
+                                    {
+                                        <span>@question.AnswerCount Replies</span>
+                                    }
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-time">
+                            <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+    </div>
+    <div id="menu3" class="tab-pane fade">
+        @foreach (var question in Model.PriorityQuestion)
+        {
+            <div id="tab4" class="w-container  city">
+                <div class="set-container">
+                    <div>
+                        <p class="question">
+                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
+                                @question.QuestionTitle
+                            </a>
+                        </p>
+                    </div>
+                    <div>
+                        <p class="by-part">
+                            By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@question.AuthorId">
+                                @question.AuthorName
+                            </a>&nbsp &nbsp Category -
+                            <a asp-controller="Category" asp-action="Topic" asp-route-id="@question.Category.CategoryId">@question.Category.CategoryTitle</a>
+                        </p>
+                    </div>
+                    <div class="answer">
+                        <p>
+                            @question.QuestionContent
+                        </p>
+                    </div>
+
+                    <div class="margin"> </div>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="like-com">
+                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+
+                                <a>
+                                    <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
+                                    @if (question.AnswerCount == 0)
+
+                                    {
+                                        <span>No Replies</span>
+                                    }
+
+                                    else
+                                    {
+                                        <span>@question.AnswerCount Replies</span>
+                                    }
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mt-time">
+                            <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        }
+    </div>
 </div>
 
 
 
-@foreach (var question in Model.RecentQuestion)
-{
-
-    <div id="tab1" class="w-container  city">
-        <div class="set-container">
-
-            <div>
-                <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
-                        @question.QuestionTitle
-                    </a>
-                </p>
-            </div>
-
-            <div>
-                <p class="by-part">
-                    By -
-                    <a asp-controller="Profile"
-                       asp-action="Details"
-                       asp-route-id="@question.AuthorId">
-                        @question.AuthorName
-                    </a>
-                    &nbsp &nbsp Category -
-                    <a asp-controller="Category"
-                       asp-action="Topic"
-                       asp-route-id="@question.Category.CategoryId">
-                        @question.Category.CategoryTitle
-                    </a>
-                </p>
-            </div>
-            <div class="answer">
-                <p>
-                    @question.QuestionContent
-                </p>
-            </div>
-
-            <div class="margin"> </div>
-
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="like-com">
-                        <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
-
-                        <a>
-                            <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
-                            @if (question.AnswerCount == 0)
-
-                            {
-                                <span>No Replies</span>
-                            }
-
-                            else
-                            {
-                                <span>@question.AnswerCount Replies</span>
-                            }
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 mt-time">
-                    <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-}
 
 
 
-@foreach (var question in Model.PopularQuestion)
-{
-    <div id="tab2" class="w-container  city">
-        <div class="set-container">
-            <div>
-                <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
-                        @question.QuestionTitle
-                    </a>
-                </p>
-            </div>
-            <div>
-                <p class="by-part">
-                    By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@question.AuthorId">
-                        @question.AuthorName
-                    </a>&nbsp &nbsp Category -
-                    <a asp-controller="Category" asp-action="Topic" asp-route-id="@question.Category.CategoryId">@question.Category.CategoryTitle</a>
-                </p>
-            </div>
-            <div class="answer">
-                <p>
-                    @question.QuestionContent
-                </p>
-            </div>
-
-            <div class="margin"> </div>
-
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="like-com">
-                        <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
-
-                        <a>
-                            <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
-                            @if (question.AnswerCount == 0)
-
-                            {
-                                <span>No Replies</span>
-                            }
-
-                            else
-                            {
-                                <span>@question.AnswerCount Replies</span>
-                            }
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 mt-time">
-                    <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
-                </div>
-            </div>
 
 
-        </div>
-    </div>
-}
-
-@foreach (var question in Model.MostResponseQuestion)
-{
-    <div id="tab3" class="w-container  city">
-        <div class="set-container">
-            <div>
-                <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
-                        @question.QuestionTitle
-                    </a>
-                </p>
-            </div>
-            <div>
-                <p class="by-part">
-                    By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@question.AuthorId" class="take-part">
-                        @question.AuthorName
-                    </a>&nbsp &nbsp Category -
-                    <a asp-controller="Category" asp-action="Topic" asp-route-id="@question.Category.CategoryId">@question.Category.CategoryTitle</a>
-                </p>
-            </div>
-            <div class="answer">
-                <p>
-                    @question.QuestionContent
-                </p>
-            </div>
-
-            <div class="margin"> </div>
-
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="like-com">
-                        <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
-
-                        <a>
-                            <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
-                            @if (question.AnswerCount == 0)
-
-                            {
-                                <span>No Replies</span>
-                            }
-
-                            else
-                            {
-                                <span>@question.AnswerCount Replies</span>
-                            }
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 mt-time">
-                    <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
-                </div>
-            </div>
 
 
-        </div>
-    </div>
-}
-
-@foreach (var question in Model.PriorityQuestion)
-{
-    <div id="tab4" class="w-container  city">
-        <div class="set-container">
-            <div>
-                <p class="question">
-                    <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
-                        @question.QuestionTitle
-                    </a>
-                </p>
-            </div>
-            <div>
-                <p class="by-part">
-                    By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@question.AuthorId">
-                        @question.AuthorName
-                    </a>&nbsp &nbsp Category -
-                    <a asp-controller="Category" asp-action="Topic" asp-route-id="@question.Category.CategoryId">@question.Category.CategoryTitle</a>
-                </p>
-            </div>
-            <div class="answer">
-                <p>
-                    @question.QuestionContent
-                </p>
-            </div>
-
-            <div class="margin"> </div>
-
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="like-com">
-                        <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
-
-                        <a>
-                            <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
-                            @if (question.AnswerCount == 0)
-
-                            {
-                                <span>No Replies</span>
-                            }
-
-                            else
-                            {
-                                <span>@question.AnswerCount Replies</span>
-                            }
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3 mt-time">
-                    <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
-                </div>
-            </div>
 
 
-        </div>
-    </div>
-}
 

@@ -31,8 +31,8 @@ namespace OneMits.Controllers
         private HomeIndexModel BuildHomeIndex()
         {
             var recentQuestion = _questionImplementation.GetLatestQuestions(10);
-            var popularQuestion = _questionImplementation.GetMostResponseQuestions(10);
-            var mostResponseQuestion = _questionImplementation.GetPopularQuestions(10);
+            var popularQuestion = _questionImplementation.GetPopularQuestions(10);
+            var mostResponseQuestion = _questionImplementation.GetMostResponseQuestions(10);
             var priorityQuestion = _questionImplementation.GetPriorityQuestions(10);
             var recentQuestions = recentQuestion.Select(question => new QuestionListingModel
             {

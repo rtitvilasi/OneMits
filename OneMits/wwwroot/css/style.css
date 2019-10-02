@@ -835,7 +835,7 @@ Main components
                 line-height: 80px;
             }
 
-                .main-nav ul.is-visible {
+            .main-nav ul.is-visible {
                     -webkit-transform: translateY(0);
                     -moz-transform: translateY(0);
                     -ms-transform: translateY(0);
@@ -848,7 +848,7 @@ Main components
                 margin-left: 1em;
             }
 
-                .main-nav li:nth-last-child(2) {
+            .main-nav li:nth-last-child(2) {
                     margin-left: 2em;
                 }
 
@@ -859,7 +859,7 @@ Main components
                 background: transparent;
             }
 
-                .main-nav a.cd-signin, .main-nav a.cd-signup {
+            .main-nav a.cd-signin, .main-nav a.cd-signup {
                     padding: .2em 1em;
                     font-size: 22px;
                     font-family: 'Source Sans Pro', sans-serif;
@@ -867,7 +867,7 @@ Main components
                     border-radius: 50em;
                 }
 
-                .main-nav a.cd-signup {
+           .main-nav a.cd-signup {
                     background: #c12b28;
                     border: none;
                 }

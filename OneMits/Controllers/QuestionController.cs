@@ -98,7 +98,7 @@ namespace OneMits.Controllers
             var user = _userManager.FindByIdAsync(userId).Result;
             var question = BuildPost(model, user);
 
-            string[] censoredWords = System.IO.File.ReadAllLines(@"C:\Users\Rishabh Titvilasi\Source\Repos\rtitvilasi\OneMits\OneMits\CensoredWords.txt");
+            string[] censoredWords = System.IO.File.ReadAllLines(@"CensoredWords.txt");
             Censor censor = new Censor(censoredWords);
             question.QuestionTitle = censor.CensorText(question.QuestionTitle);
             question.QuestionContent = censor.CensorText(question.QuestionContent);
@@ -130,7 +130,7 @@ namespace OneMits.Controllers
 
             var answer = BuildReply(model, user);
 
-            string[] censoredWords = System.IO.File.ReadAllLines(@"C:\Users\Rishabh Titvilasi\Source\Repos\rtitvilasi\OneMits\OneMits\CensoredWords.txt");
+            string[] censoredWords = System.IO.File.ReadAllLines(@"CensoredWords.txt");
             Censor censor = new Censor(censoredWords);
             answer.AnswerContent = censor.CensorText(answer.AnswerContent);
 
@@ -164,10 +164,11 @@ namespace OneMits.Controllers
             var question = _questionImplementation.GetById(questionId);
             var model = new QuestionIndexModel
             {
-                LikeCount = question.LikeQuestions.Count()
+                LikeCount = question.LikeQuestions.Count(),
+                QuestionId = question.QuestionId
             };
 
-            return model.LikeCount;
+            return model.QuestionId; 
         }
 
         private LikeQuestion BuildLike(int questionId, ApplicationUser user)
