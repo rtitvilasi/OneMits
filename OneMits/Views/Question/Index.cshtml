@@ -106,7 +106,7 @@
                 </div>
                 @if (User.Identity.Name == reply.AuthorName)
                 {
-                    <a class="like-style float-r" asp-action="DeleteAnswer" asp-route-id="@reply.AnswerId">
+                    <a class="like-style float-r" asp-controller="Question" asp-action="DeleteAnswer" asp-route-id="@reply.AnswerId">
                         <i class="fa fa-trash" style="font-size:20px;"></i>
                     </a>
                 }

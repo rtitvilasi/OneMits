@@ -55,5 +55,21 @@ namespace OneMits.InterfaceImplementation
             _context.LoginTime.Add(loginTime);
             await _context.SaveChangesAsync();
         }
+
+        public IEnumerable<OtpTable> GetAllStudents()
+        {
+            return _context.OtpTable;
+        }
+
+        public OtpTable GetByEnrollment(string enrollmentNumber)
+        {
+            return _context.OtpTable.Where(student => student.EnrollmentNumber == enrollmentNumber)
+                .First();
+        }
+
+        public ApplicationUser GetByUserName(string userName)
+        {
+            return GetAll().FirstOrDefault(user => user.UserName == userName);
+        }
     }
 }
