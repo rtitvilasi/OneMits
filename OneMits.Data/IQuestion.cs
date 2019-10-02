@@ -20,6 +20,7 @@ namespace OneMits.Data
 
         Task AddQuestion(Question question);
         Task Delete(int Questionid);
+        Task DeleteAnswer(int Answerid);
         Task EditQuestionContent(int id, string newContent);
         Task AddAnswer(Answer answer);
         Task AddLike(LikeQuestion likeQuestion);

@@ -38,7 +38,9 @@ namespace OneMits.InterfaceImplementation
         public async Task  Delete(int Questionid)
         {
             var question = GetById(Questionid);
+            _context.RemoveRange(question.Answers);
             _context.Remove(question);
+            
             await _context.SaveChangesAsync();
         }
 

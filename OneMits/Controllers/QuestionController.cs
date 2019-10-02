@@ -180,5 +180,16 @@ namespace OneMits.Controllers
                 User = user
             };
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _questionImplementation.Delete(id);
+            return RedirectToAction("Index", "Home");
+        }
+        public async Task<IActionResult> DeleteAnswer(int id)
+        {
+            await _questionImplementation.DeleteAnswer(id);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
