@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OneMits.Data.Migrations
 {
-    public partial class tst : Migration
+    public partial class Test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,7 +43,6 @@ namespace OneMits.Data.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
                     ProfileImageUrl = table.Column<string>(nullable: true),
-                    EnrollmentNumber = table.Column<string>(nullable: true),
                     MemberSince = table.Column<DateTime>(nullable: false),
                     IsActive = table.Column<bool>(nullable: false)
                 },
@@ -80,6 +79,19 @@ namespace OneMits.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LoginTime", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OtpTable",
+                columns: table => new
+                {
+                    EnrollmentNumber = table.Column<string>(nullable: false),
+                    DateOfBirth = table.Column<string>(nullable: true),
+                    EmailAddress = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OtpTable", x => x.EnrollmentNumber);
                 });
 
             migrationBuilder.CreateTable(
@@ -404,6 +416,9 @@ namespace OneMits.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "LoginTime");
+
+            migrationBuilder.DropTable(
+                name: "OtpTable");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

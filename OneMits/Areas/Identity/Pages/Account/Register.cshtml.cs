@@ -75,8 +75,9 @@ namespace OneMits.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var Student = _applicationUserInterface.GetByEnrollment(Input.UserName);
-                if(Student.DateOfBirth != Input.DateOfBirth) {
-                    return Page();
+                if(Student.DateOfBirth != Input.DateOfBirth)
+                {
+                    return RedirectToAction("NotFound","Home");
                 }
                 
                 var user = new ApplicationUser { UserName = Input.UserName, Email = Student.EmailAddress };

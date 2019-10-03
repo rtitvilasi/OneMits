@@ -53,13 +53,21 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="like-com">
-                    <form class="contact100-form-btn" 
-                          asp-controller="Question" asp-action="AddLike" asp-route-id="@Model.QuestionId">
-                   
-                        <i class="fa fa-heart" style="font-size:25px;" aria-hidden="true"></i>
-                   
-                    <span id="likecount">@Model.LikeCount </span>
-                </form>
+                    <form asp-controller="Question" asp-action="AddLike" asp-route-id="@Model.QuestionId">
+                        <input asp-for="@Model.CategoryId" type="hidden" />
+                        <input asp-for="@Model.QuestionId" type="hidden" />
+                        <button class="contact100-form-btn">
+
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <i class="fa fa-heart" style="font-size:25px;" aria-hidden="true"></i><span>(@Model.LikeCount)</span>
+                            }
+                            else
+                            {
+                                <i class="fa fa-heart fa-lg text-danger"></i><span>(@Model.LikeCount)u</span>
+                            }
+                        </button>
+                    </form>
                     <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
 
                     <a>

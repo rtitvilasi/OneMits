@@ -119,12 +119,27 @@ Dyanmic TAgs
 
 }(jQuery, document));
 
+
+
 /* --------------------------------
 
-Load More Home
+Like
 
 -------------------------------- */
 
-
+$(document).ready(function () {
+        //LIKE
+        $("a.like").click(function () {
+            var id = $(this).data("QuestionId");
+            var link = "/Article/LikeThis/" + QuestionId;
+            var a = $(this);
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function (result) {
+                    a.html('<i class="fa fa-heart fa-lg text-danger"></i> (' + result + ')').removeClass("like").addClass("unlike");
+                }
+            });
+        });
 
 

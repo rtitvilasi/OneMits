@@ -13,11 +13,11 @@
     <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="email-signup">
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="u-form-group">
-            <input asp-for="Input.DateOfBirth" class="form-control" placeholder="Email"/>
+            <input asp-for="Input.DateOfBirth" class="form-control" placeholder="DoB"/>
             <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
         </div>
         <div class="u-form-group">
-            <input asp-for="Input.UserName" class="form-control" placeholder="Username" />
+            <input asp-for="Input.UserName" class="form-control" placeholder="Enrollment No." />
             <span asp-validation-for="Input.UserName" class="text-danger"></span>
         </div>
         <div class="u-form-group">

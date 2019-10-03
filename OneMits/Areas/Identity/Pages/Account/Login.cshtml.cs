@@ -95,7 +95,7 @@ namespace OneMits.Areas.Identity.Pages.Account
                     if (!user.EmailConfirmed)
                     {
                         await _signInManager.SignOutAsync();
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("ConFirm", "Home");
                     }
                     return LocalRedirect(returnUrl);
                 }
