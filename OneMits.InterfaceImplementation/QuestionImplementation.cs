@@ -77,6 +77,9 @@ namespace OneMits.InterfaceImplementation
         public Answer GetAnswerById(int id)
         {
             return _context.Answers.Where(answer => answer.AnswerId == id)
+                .Include(answer => answer.User)
+                .Include(answer => answer.LikeAnswers)
+                .Include(answer => answer.Question)
                 .First();
         }
 
@@ -117,6 +120,10 @@ namespace OneMits.InterfaceImplementation
                 .Questions;
         }
 
-        
+        public async Task AddAnswerLike(LikeAnswer likeAnswer)
+        {
+            _context.LikeAnswers.Add(likeAnswer);
+            await _context.SaveChangesAsync();
+        }
     }
 }

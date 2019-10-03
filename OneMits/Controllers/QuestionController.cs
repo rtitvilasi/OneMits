@@ -50,6 +50,7 @@ namespace OneMits.Controllers
                 CategoryTitle = question.Category.CategoryTitle,
                 IsAuthorAdmin = IsAuthorAdmin(question.User),
                 LikeCount = question.LikeQuestions.Count()
+                
 
             };
 
@@ -67,7 +68,8 @@ namespace OneMits.Controllers
                 AuthorRating = answer.User.Rating,
                 AnswerCreated = answer.AnswerCreated,
                 AnswerContent = answer.AnswerContent,
-                IsAuthorAdmin = IsAuthorAdmin(answer.User)
+                IsAuthorAdmin = IsAuthorAdmin(answer.User),
+                
 
             });
 
@@ -177,6 +179,30 @@ namespace OneMits.Controllers
             return new LikeQuestion
             {
                 Question = question,
+                IsLike = true,
+                User = user
+            };
+        }
+        [Authorize]
+        public async Task<IActionResult> AddLikeAnswer(AnswerModel model)
+        {
+            var userId = _userManager.GetUserId(User);
+            var user = await _userManager.FindByIdAsync(userId);
+
+            var likeAnswer = BuildAnswerLike(model, user);
+
+            await _questionImplementation.AddAnswerLike(likeAnswer);
+            
+
+            return RedirectToAction("Index", "Question", new { id = model.QuestionId });
+        }
+
+        private LikeAnswer BuildAnswerLike(AnswerModel model, ApplicationUser user)
+        {
+            var answer = _questionImplementation.GetAnswerById(model.AnswerId);
+            return new LikeAnswer
+            {
+                Answer = answer,
                 IsLike = true,
                 User = user
             };

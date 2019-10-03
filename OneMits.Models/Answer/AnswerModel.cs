@@ -11,6 +11,7 @@ namespace OneMits.Models.Answer
         public string AuthorName { get; set; }
         public string AuthorImageUrl { get; set; }
         public int AuthorRating { get; set; }
+        public int LikeCountAnswer { get; set; }
 
         public DateTime AnswerCreated { get; set; }
         public string AnswerContent { get; set; }
