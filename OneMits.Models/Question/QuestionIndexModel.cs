@@ -1,6 +1,7 @@
 ﻿using OneMits.Models.Answer;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace OneMits.Models.Question
@@ -15,6 +16,10 @@ namespace OneMits.Models.Question
         public int AuthorRating { get; set; }
         public int AnswerCount { get; set; }
         public DateTime QuestionCreated { get; set; }
+
+
+        [Required]
+        [MaxLength(10, ErrorMessage = "Description cannot be longer than 10 characters.")]
         public string QuestionContent { get; set; }
         public bool IsAuthorAdmin { get; set; }
         public int LikeCount { get; set; }

@@ -64,7 +64,7 @@ namespace OneMits.InterfaceImplementation
         public OtpTable GetByEnrollment(string enrollmentNumber)
         {
             return _context.OtpTable.Where(student => student.EnrollmentNumber == enrollmentNumber)
-                .First();
+                .FirstOrDefault();
         }
 
         public ApplicationUser GetByUserName(string userName)

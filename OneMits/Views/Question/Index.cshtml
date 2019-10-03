@@ -53,27 +53,21 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="like-com">
+                    <form asp-controller="Question" asp-action="AddLike" asp-route-id="@Model.QuestionId">
+                        <input asp-for="@Model.CategoryId" type="hidden" />
+                        <input asp-for="@Model.QuestionId" type="hidden" />
+                        <button class="contact100-form-btn">
 
-                    <a href="javascript:void(0)"
-                       class="like"
-                       data-id="@Model.QuestionId">
-                        <i class="fa fa-heart-o fa-lg"></i>
-                        <span>
-                            (@Model.LikeCount)l
-                        </span>
-                    </a>
-
-
-
-                    @*<form asp-action="AddLike" asp-route-id="@Model.QuestionId">
-                            <input asp-for="@Model.QuestionId" type="hidden" />
-                            <input asp-for="@Model.CategoryId" type="hidden" />
-                            <button class="contact100-form-btn">
-                                <i class="fa fa-heart" style="font-size:25px;" aria-hidden="true"></i>
-                                <span id="likecount">@Model.LikeCount </span>
-                            </button>
-
-                        </form>*@
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <i class="fa fa-heart" style="font-size:25px;" aria-hidden="true"></i><span>(@Model.LikeCount)</span>
+                            }
+                            else
+                            {
+                                <i class="fa fa-heart fa-lg text-danger"></i><span>(@Model.LikeCount)u</span>
+                            }
+                        </button>
+                    </form>
                     <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
 
                     <a>
@@ -195,23 +189,3 @@ else
         </form>
     </div>
 </div>
-@section Scripts{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            //LIKE
-            $(document).on("click", "a.like", function () {
-                var id = $(this).data("id");
-                var link = "/QuestionController/AddLike/" + id;
-                var a = $(this);
-                $.ajax({
-                    type: "GET",
-                    url: link,
-                    success: function (result) {
-                        a.html('<i class="fa fa-heart fa-lg text-danger"></i> (' + result + ')');
-                    }
-                });
-            });
-
-        });
-    </script>
-}

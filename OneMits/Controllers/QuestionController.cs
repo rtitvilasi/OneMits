@@ -153,7 +153,7 @@ namespace OneMits.Controllers
         }
   
         [Authorize]
-        public async Task<string> AddLike(int questionId)
+        public async Task<IActionResult> AddLike(int questionId)
         {
             var userId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(userId);
@@ -168,7 +168,7 @@ namespace OneMits.Controllers
                 QuestionId = question.QuestionId
             };
 
-            return model.LikeCount.ToString(); 
+            return RedirectToAction("Index", "Question", new { id = questionId });
         }
 
         private LikeQuestion BuildLike(int questionId, ApplicationUser user)

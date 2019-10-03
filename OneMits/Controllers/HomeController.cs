@@ -99,7 +99,15 @@ namespace OneMits.Controllers
             };
         }
 
-        
+        public IActionResult NotFound()
+        {
+            return View();
+        }
+
+        public IActionResult ConFirm()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
