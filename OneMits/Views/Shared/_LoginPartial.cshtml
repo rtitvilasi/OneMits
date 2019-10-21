@@ -1,24 +1,26 @@
+
+@using Microsoft.AspNetCore.Mvc;
 @using Microsoft.AspNetCore.Identity
 @using OneMits.Data.Models
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-    <ul class="navbar-nav">
-        @if (SignInManager.IsSignedIn(User))
-        {
-            
-            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
-                <ul>
-                    <!-- inser more links here -->
-                    <li><a class="cd-signup" asp-controller="Profile" asp-action="Details" asp-route-id="@User.Identity">@User.Identity.Name!</a></li>
-                    <li>
-                        <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-                    </li>
-                </ul>
-            </form>
-        }
-        else
-        {
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        var userId = UserManager.GetUserId(User);
+        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+            <ul>
+                <!-- inser more links here -->
+                <li><a class="cd-signup" asp-controller="Profile" asp-action="Details" asp-route-id="@userId">@User.Identity.Name!</a></li>
+                <li>
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                </li>
+            </ul>
+        </form>
+    }
+    else
+    {
 
 
         <ul>
@@ -28,5 +30,5 @@
 
         </ul>
 
-        }
-    </ul>
+    }
+</ul>
