@@ -38,6 +38,7 @@ namespace OneMits.InterfaceImplementation
                 .Include(category => category.Questions);
         }
 
+
         public IEnumerable<ApplicationUser> GetAllActiveUsers()
         {
             throw new NotImplementedException();
@@ -57,6 +58,8 @@ namespace OneMits.InterfaceImplementation
                 .FirstOrDefault();
             return category;
         }
+
+
 
         public Task UpdateCategoryDescription(int categoryid, string newCategoryDescription)
         {

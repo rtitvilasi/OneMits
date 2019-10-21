@@ -12,5 +12,6 @@ namespace OneMits.Data.Models
         public DateTime CategoryCreated { get; set; }
         public string CategoryImageUrl { get; set; }
         public virtual IEnumerable<Question> Questions { get; set; }
+      
     }
 }
