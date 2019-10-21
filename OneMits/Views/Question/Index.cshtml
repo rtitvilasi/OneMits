@@ -33,7 +33,7 @@
                 @Html.Raw(Model.QuestionContent)
             </p>
         </div>
-        @if (User.Identity.Name == Model.AuthorName)
+        @if (User.Identity.Name == Model.AuthorName || User.IsInRole("Admin"))
         {
             <a class="like-style float-r" asp-controller="Question" asp-action="Delete" asp-route-id="@Model.QuestionId">
                 <i class="fa fa-trash" style="font-size:20px;"></i>
@@ -117,7 +117,7 @@
                         @reply.AnswerContent
                     </p>
                 </div>
-                @if (User.Identity.Name == reply.AuthorName)
+                @if (User.Identity.Name == reply.AuthorName || User.IsInRole("Admin"))
                 {
                     <a class="like-style float-r" asp-controller="Question" asp-action="DeleteAnswer" asp-route-id="@reply.AnswerId">
                         <i class="fa fa-trash" style="font-size:20px;"></i>
@@ -137,7 +137,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="like-com">
-                            <form asp-controller="Question" asp-action="AddLikeAnswer" asp-route-id="@reply.AnswerId">
+                            @*<form asp-controller="Question" asp-action="AddLikeAnswer" asp-route-id="@reply.AnswerId">
                                 <input asp-for="@reply.CategoryId" type="hidden" />
                                 <input asp-for="@reply.QuestionId" type="hidden" />
                                 <input asp-for="@reply.AnswerId" type="hidden" />
@@ -152,7 +152,7 @@
                                         <i class="fa fa-heart fa-lg text-danger"></i><span>(@reply.LikeCountAnswer)</span>
                                     }
                                 </button>
-                            </form>
+                            </form>*@
                         </div>
                     </div>
                     <div class="col-md-3 mt-time">

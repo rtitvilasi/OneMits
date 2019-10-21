@@ -79,14 +79,16 @@
     <div class="topnav " id="myTopnav">
         <a asp-controller="Home" asp-action="Index">Home</a>
         <a asp-controller="Category" asp-action="Index">Forums</a>
-        <a asp-controller="Question" asp-action="Create">Ask Question</a>
-        <a asp-controller="Category" asp-action="Index">Events</a>
-        <a href="assets\coming-soon-page\dist\index.html">Tag</a>
-        <a href="assets\coming-soon-page\dist\index.html">Survey</a>
-        <a href="#about">Contect US</a>
+        <a href="#">Ask Question</a>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-controller="Category" asp-action="Index">Admin Panel</a>
+        }
+        <a href="#about">About Us</a>
         <a style="float: right; padding: 0px 0px 0px 0px;">
             <form class="Search-bar example" asp-controller="Search" asp-action="Search" method="post">
-                <input name="SearchQuery" type="text" placeholder="Search..">
+                <input name="SearchQuery" type="text" placeholder="Search.." />
             </form>
         </a>
 

@@ -10,7 +10,7 @@
             <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
                 <ul>
                     <!-- inser more links here -->
-                    <li><a class="cd-signup" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name!</a></li>
+                    <li><a class="cd-signup" asp-controller="Profile" asp-action="Details" asp-route-id="@User.Identity">@User.Identity.Name!</a></li>
                     <li>
                         <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
                     </li>

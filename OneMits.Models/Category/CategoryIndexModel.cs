@@ -9,5 +9,7 @@ namespace OneMits.Models.Category
     {
         public IEnumerable<CategoryListingModel> CategoryList { get; set; }
         public CategoryListingModel Category { get; set; }
+        public string AuthorName { get; set; }
+
     }
 }

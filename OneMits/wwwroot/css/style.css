@@ -2126,6 +2126,17 @@ Create Question
         padding-top: 10px;
     }
 
+.contact100-Admin-title {
+    display: block;
+    margin: 50px 0px 0px 136px;
+    width: 100%;
+    font-family: Poppins-Bold;
+    font-size: 39px;
+    color: #c12b28;
+    line-height: 1.2;
+    text-align: left;
+}
+
     .contact100-post-title {
         display: block;
         width: 100%;
@@ -2149,6 +2160,18 @@ Create Question
         text-align: left;
         padding-bottom: 44px;
     }
+
+.contact100-user {
+    display: block;
+    margin: 50px 0px 0px 136px;
+    width: 100%;
+    font-family: Poppins-Bold;
+    font-size: 39px;
+    color: #c12b28;
+    line-height: 1.2;
+    text-align: left;
+    padding-bottom: 44px;
+}
 
     @media only screen and (max-width:768px) {
 
@@ -2271,6 +2294,33 @@ Create Question
         padding: 5px 0px 0px 15px;
         border: 0px;
     }
+.input-ur {
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-weight: 400;
+    font-family: Poppins-SemiBold;
+    font-size: 22px;
+    color: #555555;
+    line-height: 1.2;
+    padding: 5px 0px 0px 15px;
+    border: 0px;
+    margin: 50px 0px 0px 136px;
+}
+.input-user {
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-weight: 400;
+    font-family: Poppins-SemiBold;
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.2;
+    padding: 5px 0px 0px 15px;
+    border: 0px;
+    color: #e36664;
+
+}
 
 
     input.input100 {
@@ -2556,6 +2606,11 @@ Profile
         font-size: 13px;
         margin: 7px 0px 16px 7px;
     }
+
+.pro-admin {
+    font-size: 13px;
+    padding: 0px 0px 0px 15px;
+}
 
     .like-text {
         border: none;

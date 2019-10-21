@@ -49,7 +49,10 @@ namespace OneMits.InterfaceImplementation
                 .Include(f => f.Questions)
                 .ThenInclude(p => p.User)
                 .Include(f => f.Questions)
+                .ThenInclude(p => p.LikeQuestions)
+                .Include(f => f.Questions)
                 .ThenInclude(p => p.Answers)
+                .ThenInclude(l => l.LikeAnswers)
                 .ThenInclude(r => r.User)
                 .FirstOrDefault();
             return category;

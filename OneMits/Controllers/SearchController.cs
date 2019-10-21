@@ -57,6 +57,12 @@ namespace OneMits.Controllers
 
         }
 
+        public IActionResult User()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public IActionResult Search(string searchQuery)
         {

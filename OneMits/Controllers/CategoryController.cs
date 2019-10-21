@@ -112,6 +112,8 @@ namespace OneMits.Controllers
             await _categoryImplementation.Create(category);
             return RedirectToAction("Index", "Category");
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _categoryImplementation.Delete(id);
