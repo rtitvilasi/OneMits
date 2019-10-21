@@ -210,13 +210,17 @@ namespace OneMits.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
+            var question = _questionImplementation.GetById(id);
+            var CategoryId = question.Category.CategoryId;
             await _questionImplementation.Delete(id);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Category", new { id = CategoryId });
         }
         public async Task<IActionResult> DeleteAnswer(int id)
         {
+            var answer = _questionImplementation.GetAnswerById(id);
+            var QuestionId = answer.Question.QuestionId;
             await _questionImplementation.DeleteAnswer(id);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Question", new { id = QuestionId });
         }
     }
 }
