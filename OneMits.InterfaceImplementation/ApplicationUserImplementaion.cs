@@ -1,4 +1,5 @@
-﻿using OneMits.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using OneMits.Data;
 using OneMits.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace OneMits.InterfaceImplementation
         {
             return _context.ApplicationUsers;
         }
+        
 
         public ApplicationUser GetById(string id)
         {
@@ -48,6 +50,25 @@ namespace OneMits.InterfaceImplementation
             user.ProfileImageUrl = uri.AbsoluteUri;
             _context.Update(user);
             await _context.SaveChangesAsync();
+        }
+        public IEnumerable<ApplicationUser> GetAllUser()
+        {
+            return _context.ApplicationUsers
+                .Include(user => user.Id);
+        }
+        public async Task Delete(string id)
+        {
+            var Id = GetForId(id);
+            _context.Remove(Id);
+            await _context.SaveChangesAsync();
+        }
+
+        public ApplicationUser GetForId(string id)
+        {
+            var user = _context.ApplicationUsers.Where(c => c.Id == id)
+                .Include(f => f.Id)
+                .FirstOrDefault();
+            return user;
         }
 
         public async Task AddLoginTime(LoginTime loginTime)

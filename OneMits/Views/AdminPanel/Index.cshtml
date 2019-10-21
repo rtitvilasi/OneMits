@@ -34,10 +34,14 @@
 </div>
 
 <div style="margin: 50px 0px 0px 136px;">
-    <span class="input-ur">
+    <div class="input-ur">
         Search A Users :
-        <input name="SearchQuery" type="text" />
-    </span>
-
+        <form class="Search-bar example" asp-controller="Search" asp-action="Search" method="post">
+            <input name="SearchQuery" type="text" placeholder="Search.." />
+        </form>
+    </div>
+    <form class="Search-bar example" asp-controller="Search" asp-action="User" method="post">
+        <input name="SearchQuery" type="text" placeholder="Search.." />
+    </form>
 </div>
 

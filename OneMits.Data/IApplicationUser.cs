@@ -16,5 +16,7 @@ namespace OneMits.Data
 
         Task UpdateUserRating(string id, Type type);
         Task AddLoginTime(LoginTime loginTime);
+
+        Task Delete(string id);
     }
 }

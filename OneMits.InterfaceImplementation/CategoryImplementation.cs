@@ -31,13 +31,7 @@ namespace OneMits.InterfaceImplementation
             _context.Remove(forum);
             await _context.SaveChangesAsync();
         }
-        public async Task DeleteUser(int categoryid)
-        {
-            var forum = GetById(categoryid);
-            _context.RemoveRange(forum.Questions);
-            //_context.Remove();
-            await _context.SaveChangesAsync();
-        }
+        
 
 
         public IEnumerable<Category> GetAll()
