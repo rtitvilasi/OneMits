@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OneMits.Data;
 using OneMits.Data.Models;
@@ -26,28 +27,29 @@ namespace OneMits.Controllers
             _userImplementation = userImplementation;
         }
 
-        //public IActionResult UserResult(string searchQuery)
-        //{
-        //    var userList = _userImplementation.GetByUserName(searchQuery);
-        //    var areNoResults = (!string.IsNullOrEmpty(searchQuery) && !userList.Any());
+        
+        public IActionResult UserResult(string searchQuery)
+        {
+            var userList = _userImplementation.GetByUserName(searchQuery);
+            var areNoResults = (!string.IsNullOrEmpty(searchQuery) && !userList.Any());
 
-        //    var profileModel = userList
-        //        .Select(info => new ProfileModel
-        //    {
-        //        UserId = info.Id,
-        //        Email = info.Email,
-        //        UserName = info.UserName,
-        //        UserRating = info.Rating,
-        //        MemberSince = info.MemberSince,
-        //    });
-        //    var model = new SearchModel
-        //    {
-        //        UserList = profileModel,
-        //        SearchQuery = searchQuery,
-        //        EmptySearchResults = areNoResults
-        //    };
-        //    return View(model);
-        //}
+            var profileModel = userList
+                .Select(info => new ProfileModel
+                {
+                    UserId = info.Id,
+                    Email = info.Email,
+                    UserName = info.UserName,
+                    UserRating = info.Rating,
+                    MemberSince = info.MemberSince,
+                });
+            var model = new SearchModel
+            {
+                UserList = profileModel,
+                SearchQuery = searchQuery,
+                EmptySearchResults = areNoResults
+            };
+            return View(model);
+        }
         public IActionResult Result(string searchQuery)
         {
             var questions = _questionImplementation.GetFilteredQuestions(searchQuery);
@@ -84,13 +86,14 @@ namespace OneMits.Controllers
 
         }
 
+        
         [HttpPost]
         public IActionResult Search(string searchQuery)
         {
             return RedirectToAction("Result", new { searchQuery });
         }
-        
 
+        [Authorize(Roles = "Admin")]
         //[HttpPost]
         //public IActionResult UserList(string searchQuery)
         //{
