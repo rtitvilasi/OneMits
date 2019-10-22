@@ -96,5 +96,10 @@ namespace OneMits.InterfaceImplementation
         {
             return GetAll().Where(post => post.UserName.Contains(searchQuery));
         }
+        public async Task AddVisit(Visits visits)
+        {
+            _context.Visits.Add(visits);
+            await _context.SaveChangesAsync();
+        }
     }
 }
