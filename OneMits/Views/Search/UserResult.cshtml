@@ -1,0 +1,75 @@
+﻿
+@model OneMits.Models.Search.SearchModel
+
+
+<span class="input-ur">
+    User Detail
+</span>
+
+@if (!Model.EmptySearchResults)
+{
+    @foreach (var UsersList in Model.UserList)
+    {
+        <div id="tab2" class="w-container  city">
+            <div class="set-container">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="~/Views/Search/User.cshtml">~/Views/Search/User.cshtml</a>
+                        <p class="input-user">@UsersList.UserName</p>
+                    </div>
+                    <div class="col-md-6" style="float: right">
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="droum-style" asp-controller="Profile" asp-action="Delete" asp-route-id="@UsersList.UserId">
+                                <i class="fa fa-trash" style="font-size:20px;"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="pro-admin">Name : @UsersList.UserName</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="pro-admin">UserRate : @UsersList.UserRating</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="pro-admin">Member Since : @UsersList.MemberSince</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p class="pro-admin">Email : @UsersList.Email</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p class="pro-admin">Late Seen : </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="noPosts">
+        <h3>
+            No search Results found for @Model.SearchQuery<br />
+        </h3>
+    </div>
+}
+
+@section Scripts{
+    <script>
+        function clearThis(target) {
+            target.value = "";
+        }
+    </script>
+}
+
+
+
+
+
+

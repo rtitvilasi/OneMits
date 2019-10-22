@@ -10,12 +10,14 @@ namespace OneMits.Data
     {
         ApplicationUser GetById(string id);
         ApplicationUser GetByUserName(string userName);
+        IEnumerable<ApplicationUser> GetSearchUserName(string userName);
         IEnumerable<ApplicationUser> GetAll();
         OtpTable GetByEnrollment(string EnrollmentNumber);
         IEnumerable<OtpTable> GetAllStudents();
 
         Task UpdateUserRating(string id, Type type);
         Task AddLoginTime(LoginTime loginTime);
-        Task AddVisit(Visits visits);
+
+        Task Delete(string id);
     }
 }

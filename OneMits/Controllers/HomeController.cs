@@ -105,6 +105,11 @@ namespace OneMits.Controllers
             };
         }
 
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
         public IActionResult NotFound()
         {
             return View();

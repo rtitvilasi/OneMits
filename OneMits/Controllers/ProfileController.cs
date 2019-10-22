@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using OneMits.Data;
 using OneMits.Data.Models;
 using OneMits.Models.ApplicationUser;
+using System.Threading.Tasks;
 
 namespace OneMits.Controllers
 {
@@ -13,10 +14,12 @@ namespace OneMits.Controllers
     {
         private readonly UserManager<ApplicationUser> _profileManager;
         private readonly IApplicationUser _profileImplementation;
-        public ProfileController(IApplicationUser profileImplementation, UserManager<ApplicationUser> profileManager)
+        private readonly IApplicationUser _userImplementation;
+        public ProfileController(IApplicationUser profileImplementation, IApplicationUser userImplementation,UserManager<ApplicationUser> profileManager)
         {
             _profileImplementation = profileImplementation;
             _profileManager = profileManager;
+            _userImplementation = userImplementation;
         }
 
         public IActionResult Details(string id)
@@ -28,12 +31,21 @@ namespace OneMits.Controllers
             {
                 UserId = user.Id,
                 UserName = user.UserName,
-                UserRating = user.Rating.ToString(),
+                UserRating = user.Rating,
                 MemberSince = user.MemberSince,
                 Email = user.Email,
                 IsAdmin = userRoles.Contains("Admin")
             };
             return View(model);
         }
+
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _userImplementation.Delete(id);
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

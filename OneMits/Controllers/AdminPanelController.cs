@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OneMits.Data;
 using OneMits.Models.AdminPanel;
@@ -9,6 +10,7 @@ using OneMits.Models.AdminPanel;
 
 namespace OneMits.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminPanelController : Controller
     {
         private readonly ICategory _categoryImplementation;
@@ -52,5 +54,6 @@ namespace OneMits.Controllers
 
             return View(model);
         }
+
     }
 }
