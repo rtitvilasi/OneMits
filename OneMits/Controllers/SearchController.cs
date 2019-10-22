@@ -27,10 +27,10 @@ namespace OneMits.Controllers
             _userImplementation = userImplementation;
         }
 
-        
+
         public IActionResult UserResult(string searchQuery)
         {
-            var userList = _userImplementation.GetByUserName(searchQuery);
+            var userList = _userImplementation.GetSearchUserName(searchQuery);
             var areNoResults = (!string.IsNullOrEmpty(searchQuery) && !userList.Any());
 
             var profileModel = userList
@@ -86,7 +86,7 @@ namespace OneMits.Controllers
 
         }
 
-        
+
         [HttpPost]
         public IActionResult Search(string searchQuery)
         {
@@ -94,10 +94,11 @@ namespace OneMits.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        //[HttpPost]
-        //public IActionResult UserList(string searchQuery)
-        //{
-        //    return RedirectToAction("UserResult", new { searchQuery });
-        //}
+        [HttpPost]
+        public IActionResult UserList(string searchQuery)
+        {
+            return RedirectToAction("UserResult", new { searchQuery });
+        }
+
     }
 }

@@ -10,6 +10,7 @@ namespace OneMits.Data
     {
         ApplicationUser GetById(string id);
         ApplicationUser GetByUserName(string userName);
+        IEnumerable<ApplicationUser> GetSearchUserName(string userName);
         IEnumerable<ApplicationUser> GetAll();
         OtpTable GetByEnrollment(string EnrollmentNumber);
         IEnumerable<OtpTable> GetAllStudents();

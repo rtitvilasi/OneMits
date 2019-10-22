@@ -91,5 +91,10 @@ namespace OneMits.InterfaceImplementation
         {
             return GetAll().FirstOrDefault(user => user.UserName == userName);
         }
+
+        public IEnumerable<ApplicationUser> GetSearchUserName(string searchQuery)
+        {
+            return GetAll().Where(post => post.UserName.Contains(searchQuery));
+        }
     }
 }

@@ -31,13 +31,14 @@ namespace OneMits.Controllers
             {
                 UserId = user.Id,
                 UserName = user.UserName,
-                UserRating = user.Rating.ToString(),
+                UserRating = user.Rating,
                 MemberSince = user.MemberSince,
                 Email = user.Email,
                 IsAdmin = userRoles.Contains("Admin")
             };
             return View(model);
         }
+
 
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)

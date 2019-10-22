@@ -16,12 +16,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <a href="~/Views/Search/User.cshtml">~/Views/Search/User.cshtml</a>
-                        <p class="input-user">0901IT171031</p>
+                        <p class="input-user">@UsersList.UserName</p>
                     </div>
                     <div class="col-md-6" style="float: right">
                         @if (User.IsInRole("Admin"))
                         {
-                            <a class="droum-style" asp-controller="Category" asp-action="Delete" asp-route-id="@UsersList.UserId">
+                            <a class="droum-style" asp-controller="Profile" asp-action="Delete" asp-route-id="@UsersList.UserId">
                                 <i class="fa fa-trash" style="font-size:20px;"></i>
                             </a>
                         }
