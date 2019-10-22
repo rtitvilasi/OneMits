@@ -65,10 +65,16 @@ namespace OneMits.InterfaceImplementation
         {
             return GetAllStudents().FirstOrDefault(student => student.EnrollmentNumber == enrollmentNumber);
         }
-
+        
         public ApplicationUser GetByUserName(string userName)
         {
             return GetAll().FirstOrDefault(user => user.UserName == userName);
+        }
+
+        public async Task AddVisit(Visits visits)
+        {
+            _context.Visits.Add(visits);
+            await _context.SaveChangesAsync();
         }
     }
 }

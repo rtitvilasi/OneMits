@@ -1,11 +1,4 @@
-﻿
-
-
-
-@model OneMits.Models.Search.SearchModel
-
-
-
+﻿@model OneMits.Models.Search.SearchModel
 
     <span class="input-ur">
         User Detail
@@ -21,10 +14,10 @@
                 </div>
                 <div class="col-md-6" style="float: right">
                     @*@if (User.IsInRole("Admin"))
-                        {
-                            <a class="like-style float-r" asp-controller="Question" asp-action="Delete" asp-route-id="@Model.QuestionId">*@
+                        {*@
+                            <a class="like-style float-r" asp-controller="Profile" asp-action="Delete" >
                     <i class="fa fa-trash" style="font-size:20px;"></i>
-                    
+                    </a>
                     @*}*@
                 </div>
             </div>

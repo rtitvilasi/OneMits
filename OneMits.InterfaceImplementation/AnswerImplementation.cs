@@ -30,5 +30,11 @@ namespace OneMits.InterfaceImplementation
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Answer> GetAll()
+        {
+            return _context.Answers;
+
+
+        }
     }
 }

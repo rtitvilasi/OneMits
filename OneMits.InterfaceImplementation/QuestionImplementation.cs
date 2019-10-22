@@ -125,5 +125,10 @@ namespace OneMits.InterfaceImplementation
             _context.LikeAnswers.Add(likeAnswer);
             await _context.SaveChangesAsync();
         }
+
+        public IEnumerable<Answer> GetAllAnswers()
+        {
+            return _context.Answers;
+        }
     }
 }
