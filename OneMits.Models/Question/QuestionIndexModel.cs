@@ -11,6 +11,7 @@ namespace OneMits.Models.Question
         public int QuestionId { get; set; }
         public string QuestionTitle { get; set; }
         public string AuthorId { get; set; }
+        public int NumberView { get; set; }
         public string AuthorName { get; set; }
         public string AuthorImageUrl { get; set; }
         public int AuthorRating { get; set; }

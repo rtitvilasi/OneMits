@@ -34,6 +34,7 @@ namespace OneMits.Controllers
         {
             var question = _questionImplementation.GetById(id);
             var answers = Buildanswers(question.Answers);
+            question.NumberViews += 1;
             var model = new QuestionIndexModel
             {
                 QuestionId = question.QuestionId,
@@ -49,8 +50,8 @@ namespace OneMits.Controllers
                 CategoryId = question.Category.CategoryId,
                 CategoryTitle = question.Category.CategoryTitle,
                 IsAuthorAdmin = IsAuthorAdmin(question.User),
-                LikeCount = question.LikeQuestions.Count()
-                
+                LikeCount = question.LikeQuestions.Count(),
+                NumberView = question.NumberViews
 
             };
 
