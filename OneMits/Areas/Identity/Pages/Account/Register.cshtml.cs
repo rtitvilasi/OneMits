@@ -98,10 +98,10 @@ namespace OneMits.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     //await _emailSender.SendEmailAsync(Student.EmailAddress, "Confirm your email",
-                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    // $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    
-                    return LocalRedirect(returnUrl);
+
+                    return RedirectToAction("ConFirm", "Home");
                 }
                 foreach (var error in result.Errors)
                 {

@@ -27,5 +27,6 @@ namespace OneMits.Data
         Task AddAnswer(Answer answer);
         Task AddLike(LikeQuestion likeQuestion);
         Task AddAnswerLike(LikeAnswer likeAnswer);
+        Task AddView(int id);
     }
 }

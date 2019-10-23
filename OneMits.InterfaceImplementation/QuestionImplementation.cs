@@ -23,6 +23,12 @@ namespace OneMits.InterfaceImplementation
             _context.Questions.Add(question);
             await _context.SaveChangesAsync();
         }
+        public async Task AddView(int id)
+        {
+            var question = GetById(id);
+            question.NumberViews += 1; 
+            await _context.SaveChangesAsync();
+        }
 
         public async Task AddAnswer(Answer answer)
         {
@@ -130,5 +136,7 @@ namespace OneMits.InterfaceImplementation
         {
             return _context.Answers;
         }
+
+        
     }
 }
