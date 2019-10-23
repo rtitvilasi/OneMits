@@ -106,7 +106,7 @@ namespace OneMits.InterfaceImplementation
 
         public IEnumerable<Question> GetPopularQuestions(int n)
         {
-            return GetAll().OrderByDescending(question => question.QuestionCreated).Take(n);
+            return GetAll().OrderByDescending(question => question.NumberViews).Take(n);
         }
 
         public IEnumerable<Question> GetMostResponseQuestions(int n)
