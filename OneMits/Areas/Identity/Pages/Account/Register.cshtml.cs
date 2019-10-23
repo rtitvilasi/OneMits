@@ -84,7 +84,7 @@ namespace OneMits.Areas.Identity.Pages.Account
                     return RedirectToAction("NotFound","Home");
                 }
                 
-                var user = new ApplicationUser { UserName = Input.UserName, Email = Student.EmailAddress };
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Student.EmailAddress, MemberSince = DateTime.Now, IsActive = false};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

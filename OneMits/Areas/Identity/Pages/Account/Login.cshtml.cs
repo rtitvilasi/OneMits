@@ -98,6 +98,11 @@ namespace OneMits.Areas.Identity.Pages.Account
                         await _signInManager.SignOutAsync();
                         return RedirectToAction("ConFirm", "Home");
                     }
+                    if (user.IsActive)
+                    {
+                        await _signInManager.SignOutAsync();
+                        return RedirectToAction("Block", "Home");
+                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

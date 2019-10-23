@@ -119,6 +119,10 @@ namespace OneMits.Controllers
         {
             return View();
         }
+        public IActionResult Block()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

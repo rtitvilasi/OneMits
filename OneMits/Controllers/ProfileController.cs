@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using OneMits.Data;
 using OneMits.Data.Models;
 using OneMits.Models.ApplicationUser;
+using OneMits.Models.Search;
 using System.Threading.Tasks;
 
 namespace OneMits.Controllers
@@ -43,8 +44,18 @@ namespace OneMits.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
+           
             await _userImplementation.Delete(id);
-            return RedirectToAction("Index", "Home");
+            
+            return RedirectToAction("Index", "AdminPanel");
+        }
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UnDelete(string id)
+        {
+
+            await _userImplementation.UnDelete(id);
+
+            return RedirectToAction("Index", "AdminPanel");
         }
 
     }

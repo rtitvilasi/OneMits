@@ -21,14 +21,29 @@
                     <div class="col-md-6" style="float: right">
                         @if (User.IsInRole("Admin"))
                         {
-                            <a class="droum-style" asp-controller="Profile" asp-action="Delete" asp-route-id="@UsersList.UserId">
-                                <i class="fa fa-trash" style="font-size:20px;"></i>
-                            </a>
+                            @if (UsersList.IsActive == false)
+                            {
+                                <a class="droum-style" asp-controller="Profile" asp-action="Delete" asp-route-id="@UsersList.UserId">
+                                    Block<i class="fa fa-trash" style="font-size:20px;"></i>
+                                </a>
+                            }
+                            @if (UsersList.IsActive == true)
+                            {
+                                <a class="droum-style" asp-controller="Profile" asp-action="UnDelete" asp-route-id="@UsersList.UserId">
+                                    UnBlock<i class="fa fa-trash" style="font-size:20px;"></i>
+                                </a>
+                            }
                         }
                     </div>
                 </div>
 
                 <div class="row">
+                    @if (UsersList.IsActive == true)
+                    {
+                    <div class="col-md-4">
+                        <p class="pro-admin">Name : @UsersList.UserName (Blocked User)</p>
+                    </div>
+                    }
                     <div class="col-md-4">
                         <p class="pro-admin">Name : @UsersList.UserName</p>
                     </div>

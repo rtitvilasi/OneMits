@@ -58,8 +58,14 @@ namespace OneMits.InterfaceImplementation
         }
         public async Task Delete(string id)
         {
-            var Id = GetForId(id);
-            _context.Remove(Id);
+            var user = GetById(id);
+            user.IsActive = true;
+            await _context.SaveChangesAsync();
+        }
+        public async Task UnDelete(string id)
+        {
+            var user = GetById(id);
+            user.IsActive = false;
             await _context.SaveChangesAsync();
         }
 
@@ -101,5 +107,7 @@ namespace OneMits.InterfaceImplementation
             _context.Visits.Add(visits);
             await _context.SaveChangesAsync();
         }
+
+        
     }
 }
