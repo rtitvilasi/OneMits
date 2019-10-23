@@ -313,6 +313,8 @@ namespace OneMits.Data.Migrations
 
                     b.Property<int?>("CategoryId");
 
+                    b.Property<int>("NumberViews");
+
                     b.Property<string>("QuestionContent");
 
                     b.Property<DateTime>("QuestionCreated");

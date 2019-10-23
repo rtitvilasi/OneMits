@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OneMits.Data.Migrations
 {
-    public partial class test13 : Migration
+    public partial class tsts : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -223,6 +223,7 @@ namespace OneMits.Data.Migrations
                     QuestionTitle = table.Column<string>(nullable: true),
                     QuestionContent = table.Column<string>(nullable: true),
                     QuestionCreated = table.Column<DateTime>(nullable: false),
+                    NumberViews = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true),
                     CategoryId = table.Column<int>(nullable: true)
                 },
