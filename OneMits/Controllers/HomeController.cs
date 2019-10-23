@@ -47,6 +47,7 @@ namespace OneMits.Controllers
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
+                NumberView = question.NumberViews,
                 Category = GetCategoryListingForQuestion(question)
             });
             var popularQuestions = popularQuestion.Select(question => new QuestionListingModel
@@ -58,6 +59,7 @@ namespace OneMits.Controllers
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
+                NumberView = question.NumberViews,
                 Category = GetCategoryListingForQuestion(question)
             });
             var mostResponseQuestions = mostResponseQuestion.Select(question => new QuestionListingModel
@@ -69,6 +71,7 @@ namespace OneMits.Controllers
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
+                NumberView = question.NumberViews,
                 Category = GetCategoryListingForQuestion(question)
             });
             var priorityQuestions = priorityQuestion.Select(question => new QuestionListingModel
@@ -80,6 +83,7 @@ namespace OneMits.Controllers
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
+                NumberView = question.NumberViews,
                 Category = GetCategoryListingForQuestion(question)
             });
             var Ip = _accessor.HttpContext.Connection.RemoteIpAddress.ToString();

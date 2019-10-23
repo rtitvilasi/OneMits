@@ -32,9 +32,10 @@ namespace OneMits.Controllers
 
         public IActionResult Index(int id)
         {
+            _questionImplementation.AddView(id).Wait();
             var question = _questionImplementation.GetById(id);
             var answers = Buildanswers(question.Answers);
-            question.NumberViews += 1;
+            
             var model = new QuestionIndexModel
             {
                 QuestionId = question.QuestionId,
