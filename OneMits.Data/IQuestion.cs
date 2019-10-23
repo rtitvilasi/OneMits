@@ -11,6 +11,7 @@ namespace OneMits.Data
         Question GetById(int id);
         Answer GetAnswerById(int id);
         IEnumerable<Question> GetAll();
+        IEnumerable<Answer> GetAllAnswers();
         IEnumerable<Question> GetFilteredQuestions(Category category);
         IEnumerable<Question> GetFilteredQuestions(string searchQuery);
         IEnumerable<Question> GetQuestionsByCategory(int id);

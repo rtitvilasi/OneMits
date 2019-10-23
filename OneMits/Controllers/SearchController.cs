@@ -41,6 +41,7 @@ namespace OneMits.Controllers
                     UserName = info.UserName,
                     UserRating = info.Rating,
                     MemberSince = info.MemberSince,
+                    IsActive = info.IsActive,
                 });
             var model = new SearchModel
             {

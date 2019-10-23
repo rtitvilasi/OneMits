@@ -16,4 +16,8 @@
     <ProjectReference Include="..\OneMits.Data\OneMits.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Visits\" />
+  </ItemGroup>
+
 </Project>

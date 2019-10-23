@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OneMits.Data;
 using OneMits.Data.Models;
@@ -12,14 +13,17 @@ using OneMits.Models.Category;
 using OneMits.Models.Home;
 using OneMits.Models.Question;
 
+
 namespace OneMits.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IQuestion _questionImplementation;
-        public HomeController(IQuestion questionImplementation)
+        private readonly IHttpContextAccessor _accessor;
+        public HomeController(IQuestion questionImplementation, IHttpContextAccessor httpContextAccessor)
         {
             _questionImplementation = questionImplementation;
+            _accessor = httpContextAccessor;
         }
 
         public IActionResult Index()
@@ -78,8 +82,10 @@ namespace OneMits.Controllers
                 AnswerCount = question.Answers.Count(),
                 Category = GetCategoryListingForQuestion(question)
             });
+            var Ip = _accessor.HttpContext.Connection.RemoteIpAddress.ToString();
             return new HomeIndexModel
             {
+                IpAddress = Ip,
                 RecentQuestion = recentQuestions,
                 PopularQuestion = popularQuestions,
                 MostResponseQuestion = mostResponseQuestions,
@@ -110,6 +116,10 @@ namespace OneMits.Controllers
         }
 
         public IActionResult ConFirm()
+        {
+            return View();
+        }
+        public IActionResult Block()
         {
             return View();
         }

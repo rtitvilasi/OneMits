@@ -58,8 +58,14 @@ namespace OneMits.InterfaceImplementation
         }
         public async Task Delete(string id)
         {
-            var Id = GetForId(id);
-            _context.Remove(Id);
+            var user = GetById(id);
+            user.IsActive = true;
+            await _context.SaveChangesAsync();
+        }
+        public async Task UnDelete(string id)
+        {
+            var user = GetById(id);
+            user.IsActive = false;
             await _context.SaveChangesAsync();
         }
 
@@ -96,5 +102,12 @@ namespace OneMits.InterfaceImplementation
         {
             return GetAll().Where(post => post.UserName.Contains(searchQuery));
         }
+        public async Task AddVisit(Visits visits)
+        {
+            _context.Visits.Add(visits);
+            await _context.SaveChangesAsync();
+        }
+
+        
     }
 }

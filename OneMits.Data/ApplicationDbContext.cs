@@ -18,6 +18,7 @@ namespace OneMits.Data
         public DbSet<LikeAnswer> LikeAnswers { get; set; }
         public DbSet<LikeQuestion> LikeQuestions { get; set; }
         public DbSet<LoginTime> LoginTime { get; set; }
+        public DbSet<Visits> Visits { get; set; }
         public DbSet<OtpTable> OtpTable { get; set; }
     }
 }

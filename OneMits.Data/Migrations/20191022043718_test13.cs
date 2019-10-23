@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OneMits.Data.Migrations
 {
-    public partial class Test : Migration
+    public partial class test13 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -92,6 +92,20 @@ namespace OneMits.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OtpTable", x => x.EnrollmentNumber);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Visits",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    IpAddress = table.Column<string>(nullable: true),
+                    Time = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Visits", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -419,6 +433,9 @@ namespace OneMits.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "OtpTable");
+
+            migrationBuilder.DropTable(
+                name: "Visits");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

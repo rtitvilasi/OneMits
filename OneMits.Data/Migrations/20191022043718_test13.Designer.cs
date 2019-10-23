@@ -10,8 +10,8 @@ using OneMits.Data;
 namespace OneMits.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191021092141_Test2")]
-    partial class Test2
+    [Migration("20191022043718_test13")]
+    partial class test13
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -231,18 +231,6 @@ namespace OneMits.Data.Migrations
 
                     b.Property<string>("CategoryTitle");
 
-                    b.Property<int>("NumberForums");
-
-                    b.Property<int>("NumberLike");
-
-                    b.Property<int>("NumberMember");
-
-                    b.Property<int>("NumberQuestions");
-
-                    b.Property<int>("NumberReplies");
-
-                    b.Property<int>("NumberUser");
-
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
@@ -342,6 +330,21 @@ namespace OneMits.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("OneMits.Data.Models.Visits", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("IpAddress");
+
+                    b.Property<DateTime>("Time");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Visits");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
