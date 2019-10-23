@@ -871,10 +871,10 @@ Main components
                 background: transparent;
             }
 
-            .main-nav a.cd-signin, .main-nav a.cd-signup {
+                .main-nav a.cd-signin, .main-nav a.cd-signup {
                     padding: .2em 1em;
                     font-size: 22px;
-                    font-family: 'Source Sans Pro', sans-serif;
+                    font-family: Poppins-SemiBold;
                     border: 0px solid rgba(255, 255, 255, 0.6);
                     border-radius: 50em;
                 }
@@ -2389,10 +2389,11 @@ Profile
         margin-top: 27px;
     }
 
-    .pro-inf {
-        font-size: 13px;
-        margin: 7px 0px 16px 7px;
-    }
+.pro-inf {
+    font-size: 13px;
+    margin: 7px 0px 16px 7px;
+    font-family: Poppins-SemiBold;
+}
 
 .pro-admin {
     font-size: 13px;

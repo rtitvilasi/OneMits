@@ -10,7 +10,8 @@
             <div class="set-container">
                 <div>
                     <p class="question">
-                        <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
+                        <a style="text-decoration: none;color:#302b2b"
+                           asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId">
                             @question.QuestionTitle
                         </a>
                     </p>
@@ -22,7 +23,6 @@
                       @question.Category.CategoryTitle
                     </a></p>
                 </div>
-                <div class="margin"> </div>
                 <div class="answer">
                     <p>
                         @question.QuestionContent
@@ -37,27 +37,30 @@
 
                 <div class="margin"> </div>
 
-                <div class="share">
-                    <a target="_blank"><i class="fa fa-heart" style="font-size:25px;"></i></a>
-                    <a target="_blank"><i class="fa fa-history" style="font-size:25px;"></i> @question.QuestionCreated</a>
-                    <a target="_blank">
-                        <i class="fa fa-comment" style="font-size:25px;"></i>
-                        @if (question.AnswerCount == 0)
-
-                        {
-                            <span>No Replies</span>
-                        }
-
-                        else
-                        {
-                            <span>@question.AnswerCount Replies</span>
-                        }
-                    </a>
-
-                    <a href="#" target="_blank">
-                        <i class="fa fa-share-alt-square" style="font-size:25px;"></i>
-                        <p href="#" class="sbutton">Share</p>
-                    </a>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="like-com ">
+                            @*<a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>*@
+                            <a class="margin-rp like-style like-style ">
+                                <i class="fa fa-eye" style="font-size:20px;"></i>&nbsp
+                                @question.NumberView
+                            </a>
+                            <a>
+                                <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
+                                @if (question.AnswerCount == 0)
+                                {
+                                    <span>No Replies</span>
+                                }
+                                else
+                                {
+                                    <span>@question.AnswerCount Replies</span>
+                                }
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mt-time">
+                        <a class="time-style"><i class="fa fa-history" style="font-size:20px;"></i>&nbsp  @question.QuestionCreated</a>
+                    </div>
                 </div>
 
 
