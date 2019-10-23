@@ -35,13 +35,12 @@
 
 <div style="margin: 50px 0px 0px 136px;">
     <div class="input-ur">
-        Search A Users :
-        <form class="Search-bar example" asp-controller="Search" asp-action="Search" method="post">
-            <input name="SearchQuery" type="text" placeholder="Search.." />
+        Search Users :
+        <form asp-controller="Search" asp-action="UserList" method="post">
+            <input style="opacity:0.5" name="SearchQuery" type="text" placeholder="Enrollment No." />
         </form>
+            
+
     </div>
-    <form class="Search-bar example" asp-controller="Search" asp-action="UserList" method="post">
-        <input name="SearchQuery" type="text" placeholder="Search.." />
-    </form>
 </div>
 

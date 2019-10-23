@@ -37,6 +37,7 @@
                 evt.currentTarget.className += " w3-red";
             }
         </script>
+        
     </environment>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -66,7 +67,9 @@
     <header role="banner" class="">
         <div id="cd-logo">
             <h2>
-                <a asp-controller="Home" asp-action="Index" class="cl-white Site-name">One MITS</a>
+                <a style="text-decoration: none;" asp-controller="Home" asp-action="Index" class="cl-white Site-name">
+                One MITS
+                </a>
             </h2>
         </div>
 
@@ -80,13 +83,17 @@
     <!--NAVbar-->
 
     <div class="topnav " id="myTopnav">
-        <a asp-controller="Home" asp-action="Index">Home</a>
-        <a asp-controller="Category" asp-action="Index">Forums</a>
+        <a style="text-decoration: none;" asp-controller="Home" asp-action="Index">
+        Home
+        </a>
+        <a style="text-decoration: none;" asp-controller="Category" asp-action="Index">
+        Forums
+        </a>
         @if (User.IsInRole("Admin"))
         {
-            <a asp-controller="AdminPanel" asp-action="Index">Admin Panel</a>
+            <a style="text-decoration: none;" asp-controller="AdminPanel" asp-action="Index">Admin Panel</a>
         }
-        <a asp-controller="Home" asp-action="AboutUs">About Us</a>
+        <a style="text-decoration: none;" asp-controller="Home" asp-action="AboutUs">About Us</a>
         <a style="float: right; padding: 0px 0px 0px 0px;">
             <form class="Search-bar example" asp-controller="Search" asp-action="Search" method="post">
                 <input name="SearchQuery" type="text" placeholder="Search.." />
