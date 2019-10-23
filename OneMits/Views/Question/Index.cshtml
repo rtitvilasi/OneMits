@@ -41,10 +41,12 @@
         }
         <div>
             <p class="by-part">
-                By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@Model.AuthorId">
+                By - <a style="text-decoration: none;color:#8e5227" 
+                        asp-controller="Profile" asp-action="Details" asp-route-id="@Model.AuthorId">
                     @Model.AuthorName
                 </a>&nbsp &nbsp Category -
-                <a asp-controller="Category" asp-action="Topic" asp-route-id="@Model.CategoryId">
+                <a style="text-decoration: none;color:#8e5227"
+                   asp-controller="Category" asp-action="Topic" asp-route-id="@Model.CategoryId">
                     @Model.CategoryTitle
                 </a>
             </p>
@@ -126,7 +128,8 @@
                 <div>
 
                     <p class="by-part">
-                        By - <a asp-controller="Profile" asp-action="Details" asp-route-id="@reply.AuthorId" class="take-part">
+                        By - <a style="text-decoration: none;color:#8e5227"
+                                asp-controller="Profile" asp-action="Details" asp-route-id="@reply.AuthorId" class="take-part">
                             @reply.AuthorName
                         </a>
 

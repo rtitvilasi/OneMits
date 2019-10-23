@@ -15,16 +15,11 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="~/Views/Search/User.cshtml">~/Views/Search/User.cshtml</a>
                         <p class="input-user">@UsersList.UserName</p>
+                        
                     </div>
                     <div class="col-md-6" style="float: right">
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <a class="droum-style" asp-controller="Profile" asp-action="Delete" asp-route-id="@UsersList.UserId">
-                                <i class="fa fa-trash" style="font-size:20px;"></i>
-                            </a>
-                        }
+
                     </div>
                 </div>
 
@@ -47,6 +42,13 @@
                         <p class="pro-admin">Late Seen : </p>
                     </div>
                 </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="droum-style" style= "color:#484141" 
+                       asp-controller="Profile" asp-action="Delete" asp-route-id="@UsersList.UserId">
+                        <i class="fa fa-ban" style="font-size:20px;"></i>
+                    </a>
+                }
             </div>
         </div>
     }

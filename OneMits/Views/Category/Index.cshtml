@@ -31,13 +31,14 @@
                 <div class="col-md-10">
                     <div class="container-forum">
                         <form class="contact100-form validate-form">
-                            <a asp-controller="Category" asp-action="Topic" asp-route-id="@category.CategoryId">
-                                <span class="contact100-forum-title">
+                            <a style="text-decoration: none;" asp-controller="Category" asp-action="Topic" asp-route-id="@category.CategoryId">
+                                <span  class="contact100-forum-title">
                                     @category.CategoryTitle
                                 </span>
                                 <span class="label-input100">Number Of Post : @category.QuestionCount</span>
                             
-                                <p class="input-fr">@category.CategoryDescription</p></a>   
+                                <p class="input-fr">@category.CategoryDescription</p>
+                            </a>   
                         </form>
                     </div>
                     <div id="dropDownSelect1"></div>
@@ -45,14 +46,10 @@
                 <div class="col-md-2">
                     <div class="lad">
                         <button class="button-add">
-                            <a class="button-add"
-                               asp-controller="Question"
-                               asp-action="Create"
-                               asp-route-id="@category.CategoryId">
-                                <span>Add Post</span>
+                            <a asp-controller="Question" asp-action="Create" asp-route-id="@category.CategoryId">
+                                <span style="color: white;">Ask Question</span>
                             </a>
                         </button>
-
                     </div>
                 </div>
             </div>

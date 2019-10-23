@@ -2,16 +2,16 @@
 
 <ul class="w3-bar tabsbar">
     <li class="active w3-bar-item w3-button tablink w3-red">
-    <a data-toggle="tab" href="#home" style="color: white">Recent Question</a>
+    <a data-toggle="tab" href="#home" style="text-decoration: none;color: white" >Recent Question</a>
     </li>
     <li class="w3-bar-item w3-button tablink" >
-    <a data-toggle="tab" href="#menu1">Popular Question</a>
+    <a data-toggle="tab" style="text-decoration: none;color:#302b2b" href="#menu1">Popular Question</a>
     </li>
     <li class="w3-bar-item w3-button tablink w3-red " >
-    <a data-toggle="tab" href="#menu2" style="color: white">Most Responses</a>
+    <a data-toggle="tab" href="#menu2" style="text-decoration: none;color: white">Most Responses</a>
     </li>
     <li class="w3-bar-item w3-button tablink" >
-    <a data-toggle="tab" href="#menu3">Priority Questions</a>
+    <a data-toggle="tab" style="text-decoration: none;color:#302b2b" href="#menu3">Priority Questions</a>
     </li>
 </ul>
 
@@ -25,8 +25,8 @@
 
                     <div>
                         <p class="question">
-                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId"
-                               style="text-decoration:none">
+                            <a style="text-decoration: none;color:#302b2b" asp-controller="Question" 
+                               asp-action="Index" asp-route-id="@question.QuestionId">
                                 @question.QuestionTitle
                             </a>
                         </p>
@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <div class="like-com ">
-                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+                                @*<a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>*@
 
                                 <a >
                                     <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
@@ -92,7 +92,8 @@
                 <div class="set-container">
                     <div>
                         <p class="question">
-                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
+                            <a style="text-decoration: none;color:#302b2b"
+                               asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
                                 @question.QuestionTitle
                             </a>
                         </p>
@@ -116,7 +117,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <div class="like-com">
-                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+                                @*<a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>*@
 
                                 <a>
                                     <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
@@ -150,7 +151,8 @@
                 <div class="set-container">
                     <div>
                         <p class="question">
-                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
+                            <a style="text-decoration: none;color:#302b2b"
+                               asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
                                 @question.QuestionTitle
                             </a>
                         </p>
@@ -174,7 +176,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <div class="like-com">
-                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+                                @*<a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>*@
 
                                 <a>
                                     <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
@@ -208,7 +210,8 @@
                 <div class="set-container">
                     <div>
                         <p class="question">
-                            <a asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
+                            <a style="text-decoration: none;color:#302b2b"
+                               asp-controller="Question" asp-action="Index" asp-route-id="@question.QuestionId" style="text-decoration:none">
                                 @question.QuestionTitle
                             </a>
                         </p>
@@ -232,7 +235,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <div class="like-com">
-                                <a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>
+                                @*<a class="like-style"><i class="fa fa-heart" style="font-size:20px;"></i>&nbsp 25</a>*@
 
                                 <a>
                                     <i class="fa fa-comment" style="font-size:20px;"></i>&nbsp
