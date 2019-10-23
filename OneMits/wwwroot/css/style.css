@@ -461,6 +461,9 @@
     margin: 21px 0px 0px 0px;
 }
 
+.font-text {
+    font-family: Poppins-SemiBold;
+}
 /* -------------------------------- 
 
 Primary style
@@ -502,6 +505,7 @@ Primary style
         display: inline-block;
         width: 20px;
     }
+
 
 
 
@@ -867,10 +871,10 @@ Main components
                 background: transparent;
             }
 
-            .main-nav a.cd-signin, .main-nav a.cd-signup {
+                .main-nav a.cd-signin, .main-nav a.cd-signup {
                     padding: .2em 1em;
                     font-size: 22px;
-                    font-family: 'Source Sans Pro', sans-serif;
+                    font-family: Poppins-SemiBold;
                     border: 0px solid rgba(255, 255, 255, 0.6);
                     border-radius: 50em;
                 }
@@ -1252,13 +1256,13 @@ NAVBAR
 -------------------------------- */
 
 
-    .topnav {
-        overflow: hidden;
-        background-color: #212123;
-        width: 100%;
-        font-family: 'Encode Sans Semi Expanded', sans-serif;
-        margin-top: 45px;
-    }
+.topnav {
+    overflow: hidden;
+    background-color: #212123;
+    width: 100%;
+    font-family: Poppins-SemiBold;
+    margin-top: 45px;
+}
 
         .topnav a {
             float: left;
@@ -1565,13 +1569,13 @@ Reply Tags
         margin: 0px 0px 0px 0px;
     }
 
-    .by-part {
-        font-size: 14px;
-        color: #565656;
-        font-family: 'Lato', sans-serif;
-        letter-spacing: 2px;
-        padding: 0px 0px 0px 23px;
-    }
+.by-part {
+    font-size: 14px;
+    color: #565656;
+    font-family: Poppins-SemiBold;
+    letter-spacing: 2px;
+    padding: 0px 0px 0px 23px;
+}
 
     .by-Repart {
         font-size: 20px;
@@ -1585,7 +1589,6 @@ Reply Tags
     .take-part {
         text-decoration: underline;
         font-size: 13px;
-        font-style: italic;
     }
 
 .like-style {
@@ -1798,22 +1801,21 @@ Create Question
     }
 
 
-    .container-contact100 {
-        width: 100%;
-        min-height: 100vh;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 74px 0px 80px;
-        background: transparent;
-        position: relative;
-        z-index: 1;
-    }
+.container-contact100 {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 74px 40px 80px;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
 
     .container-forum {
         width: 100%;
@@ -2142,16 +2144,17 @@ Create Question
         margin-top: -25px;
     }
 
-    .container-contact100-forum-btn {
-        width: 100%;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-        margin: 47px 0px 0px 0px;
-    }
+.container-contact100-forum-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 40%;
+}
 
     .contact100-form-btn {
         display: -webkit-box;
@@ -2278,6 +2281,11 @@ Post View
     margin-bottom: 100px
 }
 
+.btn-link {
+    color: #ca5656 !important;
+    font-size: 19px !important;
+}
+
 .noreply {
     margin-left: 30%;
     margin-top: 120px;
@@ -2381,10 +2389,11 @@ Profile
         margin-top: 27px;
     }
 
-    .pro-inf {
-        font-size: 13px;
-        margin: 7px 0px 16px 7px;
-    }
+.pro-inf {
+    font-size: 13px;
+    margin: 7px 0px 16px 7px;
+    font-family: Poppins-SemiBold;
+}
 
 .pro-admin {
     font-size: 13px;
@@ -2436,13 +2445,16 @@ Profile
     .button-mar {
         margin: 36px 1px 2px 65px;
     }
+.button-del {
+    margin: 36px 1px 2px 135px;
+}
 
-    .button-add span {
-        cursor: pointer;
-        display: inline-block;
-        position: relative;
-        transition: 0.5s;
-    }
+.button-add span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
 
         .button-add span:after {
             content: '\00bb';

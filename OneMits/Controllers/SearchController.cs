@@ -63,6 +63,7 @@ namespace OneMits.Controllers
                 AuthorName = question.User.UserName,
                 QuestionCreated = question.QuestionCreated.ToString(),
                 AnswerCount = question.Answers.Count(),
+                NumberView = question.NumberViews,
                 Category = BuildForumListing(question)
             });
             var model = new SearchModel

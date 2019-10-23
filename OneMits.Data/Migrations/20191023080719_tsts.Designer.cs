@@ -10,8 +10,8 @@ using OneMits.Data;
 namespace OneMits.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191022043718_test13")]
-    partial class test13
+    [Migration("20191023080719_tsts")]
+    partial class tsts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -314,6 +314,8 @@ namespace OneMits.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("CategoryId");
+
+                    b.Property<int>("NumberViews");
 
                     b.Property<string>("QuestionContent");
 
