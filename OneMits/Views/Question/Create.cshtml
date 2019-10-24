@@ -11,13 +11,13 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
                     <label class="label-input100" asp-for="QuestionTitle">Question Tilte</label>
-                    <input class="input100" type="text" asp-for="QuestionTitle" placeholder="Enter your Question ">
+                    <input class="input100" type="text" asp-for="QuestionTitle" placeholder="Enter your Question " required>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Message is required">
                     <label class="label-input100" asp-for="QuestionContent">Desciption</label>
-                    <textarea class="input100" asp-for="QuestionContent" placeholder="About Question..."></textarea>
+                    <textarea class="input100" asp-for="QuestionContent" placeholder="About Question..." required></textarea>
                     <span class="focus-input100"></span>
                 </div>
 

@@ -7,22 +7,23 @@ namespace OneMits.Data
 {
     public class AddVisit
     {
-        private IApplicationUser _applicationUserImplementation;
-        private IHttpContextAccessor _accessor;
-        private ApplicationDbContext _context;
+        private readonly IApplicationUser _applicationUserImplementation;
+        private readonly IHttpContextAccessor _accessor;
+        private readonly ApplicationDbContext _context;
 
-        public AddVisit(IApplicationUser applicationUserImplementation, IHttpContextAccessor accessor, ApplicationDbContext context)
+        public AddVisit(IApplicationUser applicationUserImplementation, IHttpContextAccessor httpContextAccessor, ApplicationDbContext context)
         {
             _applicationUserImplementation = applicationUserImplementation;
-            _accessor = accessor;
+            _accessor = httpContextAccessor;
             _context = context;
         }
         public async Task WebVisit()
         {
+            //var ipAddress = _accessor.HttpContext.Connection.RemoteIpAddress.ToString();
             var Visit = new Visits
             {
                 Time = DateTime.Now,
-                IpAddress = "HTTP",
+                IpAddress = "Http",
             };
             await _applicationUserImplementation.AddVisit(Visit);
             await _context.SaveChangesAsync();
